@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import useInput from "hooks/useInput";
 
@@ -14,7 +14,8 @@ function SearchForm({ isPlayersActive, isClansActive }: IProps) {
 
   useEffect(() => {
     setnewInput("");
-  }, [isPlayersActive, isClansActive, setnewInput]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPlayersActive, isClansActive]);
 
   useEffect(() => {
     if (!newInput) return;
@@ -25,27 +26,34 @@ function SearchForm({ isPlayersActive, isClansActive }: IProps) {
   }, [isClansActive, isPlayersActive, newInput]);
 
   return (
-    <div className="flex flex-col px-6 py-2 space-y-2 text-sm shadow-2xl sm:text-lg">
+    <form
+      className="flex flex-col px-6 py-2 space-y-2 text-sm shadow-2xl sm:text-lg"
+      autoComplete="off"
+      onSubmit={(e: FormEvent) => e.preventDefault()}
+    >
       <input
         type="text"
         id="search-input"
-        className="w-full h-12 px-5 duration-500 ease-in-out border-0 rounded-md placeholder:text-white bg-input focus:bg-white focus:outline-none"
+        className="w-full h-12 px-5 border-0 rounded-md placeholder:text-black bg-input focus:bg-white focus:outline-none"
         placeholder={`${isPlayersActive ? "플레이어 검색" : "클랜 검색"}`}
         value={newInput}
         onChange={onChangenewInput}
       />
-      <Link href={`${category}/${encodeURIComponent(newInput)}`} passHref>
+      <Link
+        href={`${category}/${encodeURIComponent(newInput)}?hall=home`}
+        passHref
+      >
         <a
-          className={`${
+          className={`w-full h-7 flex justify-center items-center rounded-md text-lg text-white font-bold ${
             newInput.length
-              ? "active bg-gray-400 hover:bg-gray-100"
+              ? "active bg-gray-400 hover:bg-gray-100 hover:text-layout"
               : "pointer-events-none cursor-not-allowed bg-layout"
-          } w-full h-7 text-center duration-200 rounded-md text-lg`}
+          }`}
         >
           Search
         </a>
       </Link>
-    </div>
+    </form>
   );
 }
 

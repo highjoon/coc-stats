@@ -9,7 +9,7 @@ interface IProps {
 
 const buttonStyle = (isActive: boolean) => {
   return `w-1/2 h-full rounded-tl-md ${
-    isActive ? "bg-white" : "hover:bg-lightgray2 hover:text-white"
+    isActive ? "bg-white" : "text-white"
   } font-bold transition duration-200 ease focus:outline-none`;
 };
 

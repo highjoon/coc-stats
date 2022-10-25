@@ -10,7 +10,7 @@ function Header() {
       <Link href="/">
         <a>
           <Image
-            src="/assets/images/headerLogo.webp"
+            src="/assets/images/logo/headerLogo.webp"
             width={140}
             height={40}
             style={{ cursor: "pointer" }}

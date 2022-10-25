@@ -8,7 +8,7 @@ interface ILayoutProp {
 
 function Layout({ children }: ILayoutProp) {
   return (
-    <div className="w-full h-screen p-0 m-0">
+    <div className="w-full h-screen p-0 m-0 bg-layout">
       <Header />
       {children}
     </div>
