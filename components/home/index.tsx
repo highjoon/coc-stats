@@ -5,15 +5,15 @@ import SearchBox from "components/search/searchBox";
 
 function HomeView() {
   return (
-    <div className="flex flex-col items-center justify-start w-full gap-4 bg-center bg-no-repeat bg-cover h-[400px] py-9 bg-homeBackground sm:h-[550px] sm:gap-9">
+    <main className="flex flex-col items-center w-full h-full max-w-5xl gap-10 bg-zinc-900">
       <Image
-        src="/assets/images/logo/titleLogo.webp"
+        src="/assets/images/logo/titleLogo4.webp"
         alt="Title Logo"
-        width={950}
-        height={300}
+        width={500}
+        height={200}
       />
       <SearchBox />
-    </div>
+    </main>
   );
 }
 

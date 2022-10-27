@@ -8,9 +8,9 @@ interface IProps {
 }
 
 const buttonStyle = (isActive: boolean) => {
-  return `w-1/2 h-full rounded-tl-md ${
-    isActive ? "bg-white" : "text-white"
-  } font-bold transition duration-200 ease focus:outline-none`;
+  return `w-1/2 h-full ${
+    isActive ? "bg-default" : "text-white"
+  } font-bold transition duration-300 ease focus:outline-none`;
 };
 
 function SearchTab({
@@ -20,20 +20,20 @@ function SearchTab({
   toggleIsClansActive,
 }: IProps) {
   return (
-    <div className="flex items-center justify-center w-full h-12 text-sm sm:text-lg">
+    <div className="w-full h-12 text-sm sm:text-lg">
       <button
         type="button"
-        className={buttonStyle(isPlayersActive)}
+        className={`${buttonStyle(isPlayersActive)}`}
         onClick={toggleIsPlayersActive}
       >
-        Players
+        플레이어
       </button>
       <button
         type="button"
-        className={buttonStyle(isClansActive)}
+        className={`${buttonStyle(isClansActive)}`}
         onClick={toggleIsClansActive}
       >
-        Clans
+        클랜
       </button>
     </div>
   );

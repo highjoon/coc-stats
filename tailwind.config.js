@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        default: "#e5e7eb",
         layout: "#171A21",
       },
       backgroundImage: {

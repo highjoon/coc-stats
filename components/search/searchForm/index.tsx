@@ -19,22 +19,19 @@ function SearchForm({ isPlayersActive, isClansActive }: IProps) {
 
   useEffect(() => {
     if (!newInput) return;
-    let newCategory = "";
-    if (isPlayersActive) newCategory = "players";
-    if (isClansActive) newCategory = "clans";
-    setCategory(newCategory);
+    setCategory(isPlayersActive ? "players" : "clans");
   }, [isClansActive, isPlayersActive, newInput]);
 
   return (
     <form
-      className="flex flex-col px-6 py-2 space-y-2 text-sm shadow-2xl sm:text-lg"
+      className="flex flex-col space-y-2 text-sm shadow-2xl sm:text-lg"
       autoComplete="off"
       onSubmit={(e: FormEvent) => e.preventDefault()}
     >
       <input
         type="text"
         id="search-input"
-        className="w-full h-12 px-5 border-0 rounded-md placeholder:text-black bg-input focus:bg-white focus:outline-none"
+        className="w-full h-12 px-5 text-center placeholder:text-black focus:outline-none"
         placeholder={`${isPlayersActive ? "플레이어 검색" : "클랜 검색"}`}
         value={newInput}
         onChange={onChangenewInput}
@@ -43,14 +40,8 @@ function SearchForm({ isPlayersActive, isClansActive }: IProps) {
         href={`${category}/${encodeURIComponent(newInput)}?hall=home`}
         passHref
       >
-        <a
-          className={`w-full h-7 flex justify-center items-center rounded-md text-lg text-white font-bold ${
-            newInput.length
-              ? "active bg-gray-400 hover:bg-gray-100 hover:text-layout"
-              : "pointer-events-none cursor-not-allowed bg-layout"
-          }`}
-        >
-          Search
+        <a className="flex items-center justify-center w-full p-5 text-lg font-bold text-layout h-7 bg-default">
+          검색하기
         </a>
       </Link>
     </form>

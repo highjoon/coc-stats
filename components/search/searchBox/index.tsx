@@ -17,19 +17,17 @@ function SearchBox() {
   }, [setIsClansActive, setIsPlayersActive]);
 
   return (
-    <div className="w-full px-2 sm:w-[550px]">
-      <div className="flex flex-col rounded-md shadow-xl place-content-between h-36 bg-layout">
-        <SearchTab
-          isPlayersActive={isPlayersActive}
-          isClansActive={isClansActive}
-          toggleIsPlayersActive={toggleIsPlayersActive}
-          toggleIsClansActive={toggleIsClansActive}
-        />
-        <SearchForm
-          isPlayersActive={isPlayersActive}
-          isClansActive={isClansActive}
-        />
-      </div>
+    <div className="flex flex-col w-full max-w-2xl bg-default">
+      <SearchTab
+        isPlayersActive={isPlayersActive}
+        isClansActive={isClansActive}
+        toggleIsPlayersActive={toggleIsPlayersActive}
+        toggleIsClansActive={toggleIsClansActive}
+      />
+      <SearchForm
+        isPlayersActive={isPlayersActive}
+        isClansActive={isClansActive}
+      />
     </div>
   );
 }
