@@ -5,11 +5,11 @@ import SearchBox from "components/search/searchBox";
 
 function HomeView() {
   return (
-    <main className="flex flex-col items-center w-full h-full max-w-5xl gap-10 bg-zinc-900">
+    <main className="w-full max-w-5xl m-auto my-0 text-center">
       <Image
-        src="/assets/images/logo/titleLogo4.webp"
+        src="/assets/images/logo/titleLogo.webp"
         alt="Title Logo"
-        width={500}
+        width={700}
         height={200}
       />
       <SearchBox />

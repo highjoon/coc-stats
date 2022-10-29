@@ -8,9 +8,9 @@ interface IProps {
 }
 
 const buttonStyle = (isActive: boolean) => {
-  return `w-1/2 h-full ${
-    isActive ? "bg-default" : "text-white"
-  } font-bold transition duration-300 ease focus:outline-none`;
+  return `${
+    isActive ? "bg-default text-white" : "text-neutral-500"
+  } w-1/2 h-full font-bold transition duration-300 ease focus:outline-none`;
 };
 
 function SearchTab({

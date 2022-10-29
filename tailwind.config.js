@@ -10,8 +10,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        default: "#e5e7eb",
+        default: "#31313c",
         layout: "#171A21",
+        header: "#5383e8",
       },
       backgroundImage: {
         homeBackground: "url('/assets/images/background/homeBackground.webp')",

@@ -17,7 +17,7 @@ function SearchBox() {
   }, [setIsClansActive, setIsPlayersActive]);
 
   return (
-    <div className="flex flex-col w-full max-w-2xl bg-default">
+    <div className="w-full max-w-2xl m-auto my-0 border-2 rounded-md shadow-2xl border-default">
       <SearchTab
         isPlayersActive={isPlayersActive}
         isClansActive={isClansActive}

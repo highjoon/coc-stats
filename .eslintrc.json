@@ -36,7 +36,8 @@
       }
     ],
     "react/react-in-jsx-scope": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "@typescript-eslint/no-floating-promises": 0
   },
   "ignorePatterns": [
     ".eslintrc.js",
