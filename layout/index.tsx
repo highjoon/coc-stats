@@ -1,18 +1,11 @@
 import React from "react";
 
-import Header from "components/header";
-
 interface ILayoutProp {
   children: React.ReactNode;
 }
 
 function Layout({ children }: ILayoutProp) {
-  return (
-    <div>
-      <Header />
-      {children}
-    </div>
-  );
+  return <div className="px-4">{children}</div>;
 }
 
 export default Layout;

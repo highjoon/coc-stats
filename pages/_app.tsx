@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Layout from "layout";
+import Header from "components/header";
 
 import "../styles/global.css";
 import "tailwindcss/tailwind.css";
@@ -12,6 +13,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Header />
       <Layout>
         <Component {...pageProps} />
       </Layout>
