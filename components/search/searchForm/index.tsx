@@ -14,17 +14,14 @@ function SearchForm({ isPlayersActive, isClansActive }: IProps) {
   const router = useRouter();
 
   useEffect(() => {
-    setCategory(isPlayersActive ? "players" : "clans");
+    setCategory(isPlayersActive ? "player" : "clan");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isClansActive, isPlayersActive]);
 
   const onSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (!newInput.length) return;
-    router.push({
-      pathname: `${category}/${encodeURIComponent(newInput)}`,
-      query: { hall: "home" },
-    });
+    router.push(`${category}/${encodeURIComponent(newInput)}`);
   };
 
   return (

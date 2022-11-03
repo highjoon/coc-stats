@@ -18,6 +18,12 @@ module.exports = {
         homeBackground: "url('/assets/images/background/homeBackground.webp')",
       },
     },
+    screens: {
+      sm: { max: "375px" },
+      md: { max: "640px" },
+      lg: { max: "1024px" },
+      xl: { max: "1200px" },
+    },
   },
   plugins: [],
 };

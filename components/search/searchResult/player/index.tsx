@@ -1,6 +1,6 @@
 import React from "react";
 
-import ResultInfoCard from "components/common/resultInfoCard";
+import PlayerInfoCard from "components/playerInfoCard";
 import UnitCard from "components/common/unitCard";
 
 import {
@@ -17,13 +17,13 @@ import {
 
 import { flexColumnCenter } from "styles/globalStyles";
 
-function SearchResult() {
+function PlayerSearchResult() {
   return (
     <section className={`${flexColumnCenter} pt-5`}>
       <div
         className={`${flexColumnCenter} items-center p-4 space-y-4 bg-default overflow-scroll max-w-5xl w-full`}
       >
-        <ResultInfoCard
+        <PlayerInfoCard
           title="Ramos"
           level="183"
           tag="#29LVR2YUV"
@@ -31,7 +31,7 @@ function SearchResult() {
           infoList={mockHomeData}
           labels={mockLabelData}
         />
-        <ResultInfoCard
+        <PlayerInfoCard
           title="The Ring"
           level="5"
           tag="#2QRUG0P9V"
@@ -40,7 +40,7 @@ function SearchResult() {
           warPreference="in"
           infoList={mockClanData}
         />
-        <ResultInfoCard
+        <PlayerInfoCard
           level="9"
           imgUrl="/assets/images/townHalls/th13-5.webp"
           infoList={mockBuilderData}
@@ -55,4 +55,4 @@ function SearchResult() {
   );
 }
 
-export default SearchResult;
+export default PlayerSearchResult;
