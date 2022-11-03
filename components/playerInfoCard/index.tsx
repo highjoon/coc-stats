@@ -31,7 +31,7 @@ function PlayerInfoCard({
 }: IPlayerInfoCardProps) {
   return (
     <div
-      className={`${flexColumnCenter} gap-2 bg-white rounded-lg md:w-full py-2 px-10`}
+      className={`${flexColumnCenter} gap-2 bg-white rounded-lg md:w-full py-2 px-4`}
     >
       <div className="relative flex rounded-md md:w-14 md:h-14">
         {imgUrl && (

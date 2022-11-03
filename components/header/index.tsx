@@ -7,7 +7,9 @@ import { flexBetween } from "styles/globalStyles";
 
 function Header() {
   return (
-    <header className={`${flexBetween} items-center w-full h-20 p-3 bg-header`}>
+    <header
+      className={`${flexBetween} items-center w-full h-15 p-3 bg-header fixed z-10 top-0`}
+    >
       <Link href="/">
         <a>
           <Image

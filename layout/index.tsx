@@ -5,7 +5,7 @@ interface ILayoutProp {
 }
 
 function Layout({ children }: ILayoutProp) {
-  return <div className="px-4">{children}</div>;
+  return <div className="px-4 mt-16">{children}</div>;
 }
 
 export default Layout;

@@ -8,7 +8,7 @@ import { flexColumnCenter } from "styles/globalStyles";
 
 function ClanSearchResult() {
   return (
-    <section>
+    <section className={`${flexColumnCenter} pt-5`}>
       <div
         className={`${flexColumnCenter} items-center p-4 space-y-4 bg-default overflow-scroll max-w-5xl w-full`}
       >
@@ -20,6 +20,19 @@ function ClanSearchResult() {
           clanLevel={mockClanDetailData.clanLevel}
           countryName={mockClanDetailData.location?.name}
           description={mockClanDetailData.description}
+        />
+        <ClanInfoCard
+          clanPoints={mockClanDetailData.clanPoints}
+          clanVersusPoints={mockClanDetailData.clanVersusPoints}
+        />
+        <ClanInfoCard
+          warFrequency={mockClanDetailData.warFrequency}
+          warWinStreak={mockClanDetailData.warWinStreak}
+          warWins={mockClanDetailData.warWins}
+          warTies={mockClanDetailData.warTies}
+          warLosses={mockClanDetailData.warLosses}
+          warLeague={mockClanDetailData.warLeague}
+          isWarLogPublic={mockClanDetailData.isWarLogPublic}
         />
       </div>
     </section>
