@@ -1,32 +1,12 @@
 import React from "react";
-
 import Image from "next/image";
 import {
   flexBetween,
   flexCenter,
-  flexColumn,
+  flexColumnBetween,
   flexColumnCenter,
 } from "styles/globalStyles";
-import { APIWarLeague } from "types/api";
-
-interface IClanInfoCardProps {
-  imgUrl?: string;
-  name?: string;
-  tag?: string;
-  type?: string;
-  clanLevel?: number;
-  countryName?: string;
-  description?: string;
-  clanPoints?: number;
-  clanVersusPoints?: number;
-  warFrequency?: string;
-  warWinStreak?: number;
-  warWins?: number;
-  warTies?: number;
-  warLosses?: number;
-  isWarLogPublic?: boolean;
-  warLeague?: APIWarLeague;
-}
+import { IClanInfoCardProps } from "./types";
 
 function ClanInfoCard({
   imgUrl,
@@ -80,7 +60,7 @@ function ClanInfoCard({
         </div>
       )}
       {clanPoints && clanVersusPoints && (
-        <div className={`${flexColumn} w-full gap-2`}>
+        <div className={`${flexColumnBetween} w-full gap-2`}>
           <div className={`${flexBetween}`}>
             <p>클랜 포인트</p>
             <p>{clanPoints}</p>
@@ -92,18 +72,18 @@ function ClanInfoCard({
         </div>
       )}
       {isWarLogPublic === true && warLeague && (
-        <div className={`${flexColumn} w-full gap-2`}>
+        <div className={`${flexColumnBetween} w-full gap-2`}>
           <div className={`${flexCenter} text-lg font-bold`}>
             {warLeague?.name}
           </div>
           <div className={`${flexBetween}`}>
-            <p>클랜전 빈도</p>
-            {warFrequency === "always" && <p>항상</p>}
-            {warFrequency === "moreThanOncePerWeek" && <p>주 1회 이상</p>}
-            {warFrequency === "oncePerWeek" && <p>주 1회</p>}
-            {warFrequency === "lessThanOncePerWeek" && <p>주 1회 이하</p>}
-            {warFrequency === "never" && <p>하지 않음</p>}
-            {warFrequency === "unknown" && <p>알 수 없음</p>}
+            <span>클랜전 빈도</span>
+            {warFrequency === "always" && <span>항상</span>}
+            {warFrequency === "moreThanOncePerWeek" && <span>주 1회 이상</span>}
+            {warFrequency === "oncePerWeek" && <span>주 1회</span>}
+            {warFrequency === "lessThanOncePerWeek" && <span>주 1회 이하</span>}
+            {warFrequency === "never" && <span>하지 않음</span>}
+            {warFrequency === "unknown" && <span>알 수 없음</span>}
           </div>
           <div className={`${flexBetween}`}>
             <p>연승</p>

@@ -1,6 +1,7 @@
 import React from "react";
 
-import ClanInfoCard from "components/clanInfoCard";
+import ClanInfoCard from "components/clan/clanInfoCard";
+import ClanMemberList from "components/clan/clanMemberList";
 
 import { mockClanDetailData } from "utils/mockData";
 
@@ -34,6 +35,7 @@ function ClanSearchResult() {
           warLeague={mockClanDetailData.warLeague}
           isWarLogPublic={mockClanDetailData.isWarLogPublic}
         />
+        <ClanMemberList />
       </div>
     </section>
   );
