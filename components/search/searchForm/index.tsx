@@ -1,13 +1,9 @@
 import React, { FormEvent, useEffect, useState } from "react";
-import useInput from "hooks/useInput";
 import { useRouter } from "next/router";
+import useInput from "hooks/useInput";
+import { ISearchFormProps } from "./types";
 
-interface IProps {
-  isPlayersActive: boolean;
-  isClansActive: boolean;
-}
-
-function SearchForm({ isPlayersActive, isClansActive }: IProps) {
+function SearchForm({ isPlayersActive, isClansActive }: ISearchFormProps) {
   const [newInput, onChangenewInput] = useInput<string>("");
   const [category, setCategory] = useState<string>("");
 

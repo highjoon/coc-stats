@@ -1,23 +1,8 @@
 import React from "react";
-
 import Image from "next/image";
-
+import CLAN_ROLE from "constants/clans";
 import { flexBetween, flexColumn, flexColumnCenter } from "styles/globalStyles";
-
-import { CLAN_ROLE } from "constants/clans";
-
-import { APILabel } from "types/api";
-
-interface IPlayerInfoCardProps {
-  title?: string;
-  level?: string;
-  tag?: string;
-  imgUrl?: string;
-  clanRole?: string;
-  warPreference?: string;
-  infoList?: Array<{ title: string; content: string }>;
-  labels?: APILabel[];
-}
+import { IPlayerInfoCardProps } from "./types";
 
 function PlayerInfoCard({
   title,
@@ -31,7 +16,7 @@ function PlayerInfoCard({
 }: IPlayerInfoCardProps) {
   return (
     <div
-      className={`${flexColumnCenter} gap-2 bg-white rounded-lg md:w-full py-2 px-4`}
+      className={`${flexColumnCenter} gap-2 bg-white rounded-lg w-full py-2 px-4`}
     >
       <div className="relative flex rounded-md md:w-14 md:h-14">
         {imgUrl && (

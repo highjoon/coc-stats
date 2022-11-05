@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 type ObjType = {
   [index: string]: string;
 };
@@ -10,3 +8,5 @@ export const CLAN_ROLE: ObjType = {
   leader: "대표",
   admin: "장로",
 };
+
+export default CLAN_ROLE;

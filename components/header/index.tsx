@@ -1,14 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-
 import Image from "next/image";
 import Link from "next/link";
-import { flexBetween } from "styles/globalStyles";
+import { flexBetweenCenter } from "styles/globalStyles";
 
 function Header() {
   return (
     <header
-      className={`${flexBetween} items-center w-full h-15 p-3 bg-header fixed z-10 top-0`}
+      className={`${flexBetweenCenter} w-full h-15 p-3 bg-header fixed z-10 top-0`}
     >
       <Link href="/">
         <a>

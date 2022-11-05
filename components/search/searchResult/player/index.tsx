@@ -1,8 +1,6 @@
 import React from "react";
-
 import PlayerInfoCard from "components/playerInfoCard";
 import UnitCard from "components/common/unitCard";
-
 import {
   mockBuilderData,
   mockBuilderTroopsData,
@@ -14,14 +12,13 @@ import {
   mockSiegeUnitsData,
   mockSuperUnitsData,
 } from "utils/mockData";
-
 import { flexColumnCenter } from "styles/globalStyles";
 
 function PlayerSearchResult() {
   return (
     <section className={`${flexColumnCenter} pt-5`}>
       <div
-        className={`${flexColumnCenter} items-center p-4 space-y-4 bg-default overflow-scroll max-w-5xl w-full`}
+        className={`${flexColumnCenter} p-4 space-y-4 bg-default overflow-scroll max-w-5xl w-full`}
       >
         <PlayerInfoCard
           title="Ramos"

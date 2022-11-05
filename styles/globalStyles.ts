@@ -4,6 +4,8 @@ export const flexCenter = "flex justify-center items-center";
 
 export const flexBetween = "flex justify-between";
 
+export const flexBetweenCenter = "flex justify-between items-center";
+
 export const flexAround = "flex justify-around";
 
 export const flexColumn = "flex flex-col";

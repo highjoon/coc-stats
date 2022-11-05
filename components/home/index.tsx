@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-
 import SearchBox from "components/search/searchBox";
 import { flexColumnCenter } from "styles/globalStyles";
 

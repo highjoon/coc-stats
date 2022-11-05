@@ -52,9 +52,7 @@ function ClanInfoCard({
         </div>
       )}
       {description && (
-        <div
-          className={`${flexColumnCenter} justify-center w-full gap-2 flex-wrap`}
-        >
+        <div className={`${flexColumnCenter} w-full gap-2 flex-wrap`}>
           <p className="text-xl font-bold">클랜 소개</p>
           <p>{description}</p>
         </div>

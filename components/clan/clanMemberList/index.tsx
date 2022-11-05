@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { CLAN_ROLE } from "constants/clans";
+import CLAN_ROLE from "constants/clans";
 import { mockClanDetailData } from "utils/mockData";
+import { flexColumnCenter, flexCenter, flexColumn } from "styles/globalStyles";
 import { APIClanMember } from "types/api";
-import { flexColumnCenter, flexCenter } from "styles/globalStyles";
 
 function ClanMemberList() {
   const router = useRouter();
@@ -27,7 +27,7 @@ function ClanMemberList() {
           className="relative flex justify-between w-full p-3 border-b-2 cursor-pointer border-b-default last:border-none last:pb-0"
           onClick={() => moveToPlayerDetail(member.tag)}
         >
-          <div className="flex flex-col gap-2">
+          <div className={`${flexColumn} gap-2`}>
             <span
               className={`${flexCenter} absolute top-0 left-0 w-5 h-5 text-xs text-white bg-default`}
             >
@@ -39,12 +39,12 @@ function ClanMemberList() {
                 width={30}
                 height={30}
               />
-              <div className="flex flex-col">
+              <div className={`${flexColumn}`}>
                 <span className="font-bold">{member.name}</span>
                 <span className="text-sm">{member.tag}</span>
               </div>
             </div>
-            <div className="flex flex-col">
+            <div className={`${flexColumn}`}>
               <span className="text-sm">지원한 병력 : {member.donations}</span>
               <span className="text-sm">
                 지원 받은 병력 : {member.donationsReceived}

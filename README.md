@@ -4,6 +4,7 @@
 
 - react
 - next
+- library
 - layouts
 - pages
 - components
