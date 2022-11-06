@@ -277,6 +277,9 @@ export interface APICapitalRaidSeasons {
 
 /** /players/{playerTag} */
 export interface APIPlayer {
+  json(): any;
+  reason?: string;
+  message?: string;
   name: string;
   tag: string;
   townHallLevel: number;
