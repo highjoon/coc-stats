@@ -19,10 +19,10 @@ module.exports = {
       },
     },
     screens: {
-      sm: { max: "375px" },
-      md: { max: "640px" },
-      lg: { max: "1024px" },
       xl: { max: "1200px" },
+      lg: { max: "1024px" },
+      md: { max: "640px" },
+      sm: { max: "375px" },
     },
   },
   plugins: [],

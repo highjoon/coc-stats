@@ -9,7 +9,7 @@ function SearchTab({
   toggleIsClansActive,
 }: ISearchTabProps) {
   return (
-    <div className="w-full h-12 text-sm md:text-lg">
+    <div className="w-full h-12 text-lg">
       <button
         type="button"
         className={`${buttonStyle(isPlayersActive)}`}

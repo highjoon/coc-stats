@@ -5,7 +5,7 @@ import { IUnitCardProps } from "./types";
 
 function UnitCard({ troops }: IUnitCardProps) {
   return (
-    <div className="grid w-full grid-cols-8 gap-5 p-2 bg-white rounded-lg md:gap-1 md:grid-cols-4 place-items-center">
+    <div className="grid w-full grid-cols-8 gap-5 p-2 bg-white rounded-lg place-items-center md:gap-1 md:grid-cols-4 sm:grid-cols-3">
       {troops.map((troop) => (
         <div
           key={`${troop.name}-${troop.village}`}
