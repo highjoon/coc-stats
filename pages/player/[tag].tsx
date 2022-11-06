@@ -1,3 +1,4 @@
+import React from "react";
 import PlayerSearchResult from "components/search/searchResult/player";
 
 function PlayerPage() {

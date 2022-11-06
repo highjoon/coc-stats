@@ -1,7 +1,8 @@
 import React from "react";
+import RankView from "components/rank";
 
 function RankPage() {
-  return <div />;
+  return <RankView />;
 }
 
 export default RankPage;
