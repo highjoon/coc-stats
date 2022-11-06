@@ -15,7 +15,7 @@ function RankView() {
 
   const movoToClanDetail = (tag: string) => {
     router.push({
-      pathname: `/clan/${tag}`,
+      pathname: `/clan/${encodeURIComponent(tag)}`,
       query: { type: "basic" },
     });
   };

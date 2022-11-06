@@ -17,10 +17,7 @@ function SearchForm({ isPlayersActive, isClansActive }: ISearchFormProps) {
   const onSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (!newInput.length) return;
-    router.push({
-      pathname: `${category}/${encodeURIComponent(newInput)}`,
-      query: category === "clan" ? { type: "basic" } : {},
-    });
+    router.push(`${category}/${encodeURIComponent(newInput)}`);
   };
 
   return (

@@ -9,7 +9,7 @@ function ClanMemberList() {
   const router = useRouter();
 
   const moveToPlayerDetail = (tag: string) => {
-    router.push({ pathname: `/player/${tag}` });
+    router.push({ pathname: `/player/${encodeURIComponent(tag)}` });
   };
 
   return (

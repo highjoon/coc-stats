@@ -46,7 +46,7 @@ function ClanInfoCard({
             <span className="text-sm font-bold">LV. {clanLevel}</span>
             <span className="text-3xl font-extrabold">{name}</span>
           </div>
-          <span>{tag}</span>
+          <span className="font-semibold">{tag}</span>
           {countryName && <p className="font-bold">{countryName}</p>}
           <p>{type === "open" ? "가입 가능" : "가입 불가능"}</p>
         </div>
