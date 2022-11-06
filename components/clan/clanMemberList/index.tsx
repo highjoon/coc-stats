@@ -14,7 +14,7 @@ function ClanMemberList() {
   };
 
   return (
-    <div className={`${flexColumnCenter} bg-white rounded-lg md:w-full py-2`}>
+    <div className={`${flexColumnCenter} bg-white rounded-lg w-full py-2`}>
       <div className="w-full pb-2 text-lg font-bold text-center border-b-2 border-b-default">
         <span>클랜원 </span>
         {mockClanDetailData.members}

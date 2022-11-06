@@ -104,7 +104,18 @@ export interface APIClanMemberList {
 
 /** /clans/{clanTag}/currentwar and /clanwarleagues/wars/{warTag} */
 export interface APIClanWar {
-  state: "notInWar" | "preparation" | "inWar" | "warEnded";
+  state:
+    | "clanNotFound"
+    | "accessDenied"
+    | "notInWar"
+    | "inMatchMaking"
+    | "enterWar"
+    | "matched"
+    | "warEnded"
+    | "preparation"
+    | "war"
+    | "inWar"
+    | "ended";
   teamSize: number;
   startTime: string;
   preparationStartTime: string;

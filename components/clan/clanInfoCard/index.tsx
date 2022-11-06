@@ -28,10 +28,10 @@ function ClanInfoCard({
 }: IClanInfoCardProps) {
   return (
     <div
-      className={`${flexColumnCenter} gap-2 bg-white rounded-lg md:w-full py-2 px-4`}
+      className={`${flexColumnCenter} gap-2 bg-white rounded-lg w-full py-2 px-4`}
     >
       {imgUrl && (
-        <div className="relative flex rounded-md md:w-14 md:h-14">
+        <div className="relative flex rounded-md w-14 h-14">
           <Image
             src={imgUrl}
             layout="fill"
@@ -47,7 +47,11 @@ function ClanInfoCard({
             <span className="text-3xl font-extrabold">{name}</span>
           </div>
           <span>{tag}</span>
-          {countryName && <p className="font-bold">{countryName}</p>}
+          {countryName && (
+            <p className="font-bold cursor-pointer hover:text-header">
+              {countryName}
+            </p>
+          )}
           <p>{type === "open" ? "가입 가능" : "가입 불가능"}</p>
         </div>
       )}
@@ -71,7 +75,9 @@ function ClanInfoCard({
       )}
       {isWarLogPublic === true && warLeague && (
         <div className={`${flexColumnBetween} w-full gap-2`}>
-          <div className={`${flexCenter} text-lg font-bold`}>
+          <div
+            className={`${flexCenter} text-lg font-bold hover:text-header cursor-pointer`}
+          >
             {warLeague?.name}
           </div>
           <div className={`${flexBetween}`}>

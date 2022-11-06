@@ -6,6 +6,10 @@ export const flexBetween = "flex justify-between";
 
 export const flexBetweenCenter = "flex justify-between items-center";
 
+export const flexEvenly = "flex justify-evenly";
+
+export const flexEvenlyCenter = "flex justify-evenly items-center";
+
 export const flexAround = "flex justify-around";
 
 export const flexColumn = "flex flex-col";
