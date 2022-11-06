@@ -2,13 +2,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { flexBetweenCenter } from "styles/globalStyles";
 
 function Header() {
   return (
-    <header
-      className={`${flexBetweenCenter} w-full h-15 p-3 bg-header fixed z-20 top-0 md:p-2`}
-    >
+    <header className="fixed top-0 z-20 flex items-center justify-between w-full p-3 h-15 bg-header md:p-2">
       <Link href="/">
         <a>
           <Image

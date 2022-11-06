@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import SearchBox from "components/search/searchBox";
-import { flexColumnCenter } from "styles/globalStyles";
 
 function HomeView() {
   return (
-    <main className={`${flexColumnCenter} w-full m-auto mt-10 gap-10`}>
+    <main className="flex flex-col items-center justify-center w-full gap-10 m-auto mt-10">
       <Image
         src="/assets/images/logo/titleLogo.webp"
         alt="Title Logo"

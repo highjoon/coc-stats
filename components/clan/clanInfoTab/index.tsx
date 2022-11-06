@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { flexEvenly } from "styles/globalStyles";
 
 function ClanInfoTab() {
   const router = useRouter();
@@ -27,7 +26,7 @@ function ClanInfoTab() {
   };
 
   return (
-    <div className={`${flexEvenly} w-full gap-2`}>
+    <div className="flex w-full gap-2 justify-evenly">
       <button
         type="button"
         className={`w-full p-2 rounded-md ${

@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { flexCenter, flexColumnCenter } from "styles/globalStyles";
 import { IUnitCardProps } from "./types";
 
 function UnitCard({ troops }: IUnitCardProps) {
@@ -9,7 +8,7 @@ function UnitCard({ troops }: IUnitCardProps) {
       {troops.map((troop) => (
         <div
           key={`${troop.name}-${troop.village}`}
-          className={`${flexColumnCenter} w-16 h-16 relative bg-slate-400 rounded-md border-2 ${
+          className={`flex flex-col justify-center items-center w-16 h-16 relative bg-slate-400 rounded-md border-2 ${
             troop.superTroopIsActive ? "border-pink-500" : "border-default"
           } ${
             troop.level === troop.maxLevel
@@ -26,7 +25,7 @@ function UnitCard({ troops }: IUnitCardProps) {
             objectFit="cover"
           />
           <div
-            className={`${flexCenter} absolute p-1 w-6 h-6 text-white ${
+            className={`flex justify-center items-center absolute p-1 w-6 h-6 text-white ${
               troop.superTroopIsActive ? "bg-pink-500" : ""
             } ${
               troop.level === troop.maxLevel ? "bg-yellow-500" : "bg-default"

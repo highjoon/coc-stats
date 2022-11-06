@@ -2,13 +2,10 @@ import React from "react";
 import ClanInfoCard from "components/clan/clanInfoCard";
 import ClanMemberList from "components/clan/clanMemberList";
 import { mockClanDetailData } from "utils/mockData";
-import { flexColumnCenter } from "styles/globalStyles";
 
 function ClanSearchResult() {
   return (
-    <section
-      className={`${flexColumnCenter} p-4 mt-5 space-y-4 bg-default overflow-scroll max-w-5xl w-full`}
-    >
+    <section className="flex flex-col items-center justify-center w-full max-w-5xl p-4 mt-5 space-y-4 overflow-scroll bg-default">
       <ClanInfoCard
         imgUrl={mockClanDetailData.badgeUrls.small}
         name={mockClanDetailData.name}

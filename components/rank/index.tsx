@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import DataCard from "components/common/dataCard";
 import RankType from "components/rank/rankType";
 import { mockClansRankData } from "utils/mockData";
-import { flexColumnCenter } from "styles/globalStyles";
 
 function RankView() {
   const router = useRouter();
@@ -21,11 +20,9 @@ function RankView() {
   };
 
   return (
-    <section className={`${flexColumnCenter} pt-5 w-full`}>
-      <div
-        className={`${flexColumnCenter} p-4 space-y-4 bg-default overflow-scroll max-w-5xl w-full`}
-      >
-        <div className={`${flexColumnCenter} bg-white rounded-lg w-full`}>
+    <section className="flex flex-col items-center justify-center w-full pt-5">
+      <div className="flex flex-col items-center justify-center w-full max-w-5xl p-4 space-y-4 overflow-scroll bg-default">
+        <div className="flex flex-col items-center justify-center w-full bg-white rounded-lg">
           <RankType
             openCountryList={openCountryList}
             openCategoryList={openCategoryList}

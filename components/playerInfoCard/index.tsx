@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import CLAN_ROLE from "constants/clans";
-import { flexBetween, flexColumn, flexColumnCenter } from "styles/globalStyles";
 import { IPlayerInfoCardProps } from "./types";
 
 function PlayerInfoCard({
@@ -33,9 +32,7 @@ function PlayerInfoCard({
   };
 
   return (
-    <div
-      className={`${flexColumnCenter} gap-2 bg-white rounded-lg w-full py-2 md:px-4 px-20`}
-    >
+    <div className="flex flex-col items-center justify-center w-full gap-2 px-20 py-2 bg-white rounded-lg md:px-4">
       <div className="relative flex rounded-md md:w-14 md:h-14">
         {imgUrl && (
           <Image
@@ -46,7 +43,7 @@ function PlayerInfoCard({
           />
         )}
       </div>
-      <div className={`${flexColumnCenter}`}>
+      <div className="flex flex-col items-center justify-center">
         <div className="flex items-end gap-3">
           {level && <span className="text-sm font-bold">LV. {level}</span>}
           <span className="text-3xl font-extrabold">{title}</span>
@@ -62,13 +59,13 @@ function PlayerInfoCard({
         </span>
       </div>
       {clanRole && warPreference && (
-        <div className={`${flexColumnCenter} gap-2`}>
+        <div className="flex flex-col items-center justify-center gap-2">
           <p>{CLAN_ROLE[clanRole]}</p>
           <p>클랜전 {warPreference === "in" ? "참여" : "미참여"}</p>
         </div>
       )}
       {labels && (
-        <div className={`${flexColumn} gap-2`}>
+        <div className="flex flex-col gap-2">
           {labels.map((label) => (
             <div
               key={label.id}
@@ -80,69 +77,69 @@ function PlayerInfoCard({
           ))}
         </div>
       )}
-      <div className={`${flexColumn} w-full gap-2`}>
+      <div className="flex flex-col w-full gap-2">
         {warStars && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>획득한 별</span>
             <span>{warStars}</span>
           </div>
         )}
         {trophies && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>트로피</span>
             <span>{trophies}</span>
           </div>
         )}
         {bestTrophies && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>트로피 최고 기록</span>
             <span>{bestTrophies}</span>
           </div>
         )}
         {attackWins && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>공격 승리</span>
             <span>{attackWins}</span>
           </div>
         )}
         {defenseWins && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>방어 승리</span>
             <span>{defenseWins}</span>
           </div>
         )}
         {donations && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>지원한 병력 수</span>
             <span>{donations}</span>
           </div>
         )}
         {donationsReceived && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>지원 받은 병력 수</span>
             <span>{donationsReceived}</span>
           </div>
         )}
         {clanCapitalContributions && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>클랜 캐피탈 기여</span>
             <span>{clanCapitalContributions}</span>
           </div>
         )}
         {versusTrophies && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>장인 기지 트로피</span>
             <span>{versusTrophies}</span>
           </div>
         )}
         {bestVersusTrophies && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>장인 기지 트로피 최고 기록</span>
             <span>{bestVersusTrophies}</span>
           </div>
         )}
         {versusBattleWins && (
-          <div className={`${flexBetween} w-full`}>
+          <div className="flex justify-between w-full">
             <span>장인 기지 공격 승리</span>
             <span>{versusBattleWins}</span>
           </div>

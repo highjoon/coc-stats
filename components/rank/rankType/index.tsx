@@ -1,5 +1,4 @@
 import React from "react";
-import { flexBetweenCenter } from "styles/globalStyles";
 import { IRankTypeProps } from "./types";
 
 function RankType({
@@ -27,9 +26,7 @@ function RankType({
   };
 
   return (
-    <div
-      className={`${flexBetweenCenter} gap-3 w-full py-4 px-10 md:px-6 border-b-2 border-b-default`}
-    >
+    <div className="flex items-center justify-between w-full gap-3 px-10 py-4 border-b-2 md:px-6 border-b-default">
       <div
         role="presentation"
         className="relative w-full p-3 text-center text-white rounded-md cursor-pointer bg-layout"

@@ -7,7 +7,6 @@ import {
   mockSiegeUnitsData,
   mockSuperUnitsData,
 } from "utils/mockData";
-import { flexColumnCenter } from "styles/globalStyles";
 import { APIPlayer } from "types/api";
 
 interface IPlayerSearchResultProps {
@@ -16,9 +15,7 @@ interface IPlayerSearchResultProps {
 
 function PlayerSearchResult({ playerData }: IPlayerSearchResultProps) {
   return (
-    <section
-      className={`${flexColumnCenter} p-4 mt-5 space-y-4 bg-default overflow-scroll max-w-5xl w-full`}
-    >
+    <section className="flex flex-col items-center justify-center w-full max-w-5xl p-4 mt-5 space-y-4 overflow-scroll bg-default">
       <PlayerInfoCard
         title={playerData.name}
         level={playerData.expLevel}
