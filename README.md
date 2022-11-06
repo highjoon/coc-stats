@@ -13,3 +13,12 @@
 - utils
 - styles
 - types
+
+## commit 컨벤션
+
+- FEATURE : 기능 추가
+- DESIGN : 디자인 스타일링
+- STYLE : 코드 스타일
+- ADD : 단순 파일 또는 폴더 생성
+- REFACTOR : 리팩토링
+- DOCS : README.md
