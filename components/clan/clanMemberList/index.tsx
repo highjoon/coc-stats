@@ -1,10 +1,14 @@
 import React from "react";
 import { useRouter } from "next/router";
 import DataCard from "components/common/dataCard";
-import { mockClanDetailData } from "utils/mockData";
 import { APIClanMember } from "types/api";
 
-function ClanMemberList() {
+interface IClanMemberListProps {
+  memberList: APIClanMember[];
+  members: number;
+}
+
+function ClanMemberList({ memberList, members }: IClanMemberListProps) {
   const router = useRouter();
 
   const moveToPlayerDetail = (tag: string) => {
@@ -15,10 +19,10 @@ function ClanMemberList() {
     <div className="flex flex-col justify-center w-full py-2 bg-white rounded-lg">
       <div className="w-full pb-2 text-lg font-bold text-center border-b-2 border-b-default">
         <span>클랜원 </span>
-        {mockClanDetailData.members}
+        {members}
         <span>명</span>
       </div>
-      {mockClanDetailData.memberList.map((member: APIClanMember) => (
+      {memberList.map((member: APIClanMember) => (
         <DataCard
           key={member.tag}
           tag={member.tag}

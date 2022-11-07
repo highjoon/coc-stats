@@ -45,6 +45,8 @@ export interface APIChatLanguage {
 
 /** /clans/{clanTag} */
 export interface APIClan {
+  reason?: string;
+  message?: string;
   tag: string;
   name: string;
   type: "open" | "inviteOnly" | "closed";

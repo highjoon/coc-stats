@@ -21,6 +21,7 @@ export default PlayerPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tag } = context.query;
+
   try {
     const response = await APIRequest<{
       result: APIPlayer;

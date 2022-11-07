@@ -22,3 +22,4 @@
 - ADD : 단순 파일 또는 폴더 생성
 - REFACTOR : 리팩토링
 - DOCS : README.md
+- DELETE : 파일 또는 폴더 삭제
