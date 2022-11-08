@@ -63,7 +63,7 @@ function ClanInfoCard({
       )}
       {isWarLogPublic === true && warLeague && (
         <div className="flex flex-col justify-between w-full gap-2">
-          <div className="flex items-center text-lg font-bold flex-center">
+          <div className="flex items-center justify-center text-lg font-bold">
             {warLeague?.name}
           </div>
           <div className="flex justify-between">

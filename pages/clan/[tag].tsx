@@ -4,6 +4,7 @@ import SearchError from "components/search/searchError";
 import ClanSearchResult from "components/search/searchResult/clan";
 import APIRequest from "utils/api";
 import { APIClan } from "types/api";
+import { API_CLIENT_URL } from "constants/http";
 
 interface IClanPageProps {
   clanData: APIClan;
@@ -14,6 +15,7 @@ function ClanPage({ clanData, message }: IClanPageProps) {
   if (message !== undefined) {
     return <SearchError message={message} />;
   }
+
   return <ClanSearchResult clanData={clanData} />;
 }
 
@@ -27,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       result: APIClan;
       status: number;
       message?: string;
-    }>(`http://localhost:3000/api/clan/${encodeURIComponent(String(tag))}`);
+    }>(`${String(API_CLIENT_URL)}/api/clan/${encodeURIComponent(String(tag))}`);
 
     if (response.status > 200) {
       return {

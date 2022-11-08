@@ -3,7 +3,7 @@ import { API_BASE_URL, API_WEB_TOKEN } from "constants/http";
 import APIRequest from "utils/api";
 import { APIPlayer } from "types/api";
 
-const PlayerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const playerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const response = await APIRequest<APIPlayer>(
       `${API_BASE_URL}/players/${encodeURIComponent(String(req.query.tag))}`,
@@ -15,6 +15,7 @@ const PlayerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         },
       },
     );
+
     if (response.reason !== undefined) {
       res.status(404).json({ status: 404, message: "찾을 수 없습니다." });
     } else {
@@ -25,4 +26,4 @@ const PlayerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default PlayerHandler;
+export default playerHandler;

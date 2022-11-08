@@ -924,6 +924,9 @@ export const mockPlayerData: APIPlayer = {
       village: "home",
     },
   ],
+  json() {
+    throw new Error("Function not implemented.");
+  },
 };
 
 export const mockHomeTroopsData: Array<APIPlayerItem> = [

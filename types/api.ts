@@ -357,6 +357,8 @@ export interface APIVerifyToken {
 
 /** /locations */
 export interface APILocationList {
+  reason?: string;
+  message?: string;
   items: APILocation[];
   paging: APIPaging;
 }
@@ -372,6 +374,8 @@ export interface APILocation {
 
 /** /locations/{locationId}/rankings/clans */
 export interface APIClanRankingList {
+  reason?: string;
+  message?: string;
   items: APIClanRanking[];
   paging: APIPaging;
 }
@@ -390,6 +394,8 @@ export interface APIClanRanking {
 
 /** /locations/{locationId}/rankings/players */
 export interface APIPlayerRankingList {
+  reason?: string;
+  message?: string;
   items: APIPlayerRanking[];
   paging: APIPaging;
 }
@@ -409,6 +415,8 @@ export interface APIPlayerRanking {
 
 /** /locations/{locationId}/rankings/clans-versus */
 export interface APIClanVersusRankingList {
+  reason?: string;
+  message?: string;
   items: APIClanVersusRanking[];
   paging: APIPaging;
 }
@@ -427,6 +435,8 @@ export interface APIClanVersusRanking {
 
 /** /locations/{locationId}/rankings/players-versus */
 export interface APIPlayerVersusRankingList {
+  reason?: string;
+  message?: string;
   items: APIPlayerVersusRanking[];
   paging: APIPaging;
 }

@@ -2,11 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import DataCard from "components/common/dataCard";
 import { APIClanMember } from "types/api";
-
-interface IClanMemberListProps {
-  memberList: APIClanMember[];
-  members: number;
-}
+import { IClanMemberListProps } from "./types";
 
 function ClanMemberList({ memberList, members }: IClanMemberListProps) {
   const router = useRouter();

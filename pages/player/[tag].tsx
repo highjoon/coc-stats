@@ -4,6 +4,7 @@ import PlayerSearchResult from "components/search/searchResult/player";
 import SearchError from "components/search/searchError";
 import APIRequest from "utils/api";
 import { APIPlayer } from "types/api";
+import { API_CLIENT_URL } from "constants/http";
 
 interface IPlayerPageProps {
   playerData: APIPlayer;
@@ -27,7 +28,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       result: APIPlayer;
       status: number;
       message?: string;
-    }>(`http://localhost:3000/api/player/${encodeURIComponent(String(tag))}`);
+    }>(
+      `${String(API_CLIENT_URL)}/api/player/${encodeURIComponent(String(tag))}`,
+    );
 
     if (response.status > 200) {
       return {
