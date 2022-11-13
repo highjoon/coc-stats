@@ -8,4 +8,5 @@ export interface IUnit {
 
 export interface IProps {
   troops: Array<IUnit>;
+  category: string;
 }

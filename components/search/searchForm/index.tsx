@@ -4,15 +4,16 @@ import useInput from "hooks/useInput";
 import { IProps } from "./types";
 
 function SearchForm({ isPlayersActive, isClansActive }: IProps) {
-  const [newInput, onChangenewInput] = useInput<string>("");
+  const router = useRouter();
+
   const [category, setCategory] = useState<string>("");
 
-  const router = useRouter();
+  const [newInput, onChangenewInput] = useInput<string>("");
 
   const onSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (!newInput.length) return;
-    router.push(`${category}/${encodeURIComponent(newInput)}`);
+    router.push(`/${category}/${encodeURIComponent(newInput)}`);
   };
 
   useEffect(() => {

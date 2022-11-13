@@ -5,17 +5,20 @@ import SearchError from "components/search/searchError";
 import { API_CLIENT_URL } from "constants/http";
 import APIRequest from "utils/api";
 import { APIPlayer } from "types/api";
+import { ITroopsResponse } from "types/troops";
 
 interface IPlayerPageProps {
   playerData: APIPlayer;
+  troopsData: ITroopsResponse;
   message?: string;
 }
 
-function PlayerPage({ playerData, message }: IPlayerPageProps) {
+function PlayerPage({ playerData, troopsData, message }: IPlayerPageProps) {
   if (message !== undefined) {
     return <SearchError message={message} />;
   }
-  return <PlayerSearchResult playerData={playerData} />;
+
+  return <PlayerSearchResult playerData={playerData} troopsData={troopsData} />;
 }
 
 export default PlayerPage;
@@ -26,6 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
     const response = await APIRequest<{
       result: APIPlayer;
+      troops: ITroopsResponse;
       status: number;
       message?: string;
     }>(
@@ -44,6 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         playerData: response.result,
+        troopsData: response.troops,
       },
     };
   } catch (e) {

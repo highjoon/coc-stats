@@ -3,7 +3,7 @@ import PlayerInfoCard from "components/players/infoCard";
 import UnitCard from "components/common/unitCard";
 import { IProps } from "./types";
 
-function PlayerSearchResult({ playerData }: IProps) {
+function PlayerSearchResult({ playerData, troopsData }: IProps) {
   return (
     <section className="flex flex-col items-center justify-center w-full max-w-5xl p-4 mt-5 space-y-4 overflow-scroll bg-default">
       <PlayerInfoCard
@@ -36,7 +36,11 @@ function PlayerSearchResult({ playerData }: IProps) {
         bestVersusTrophies={playerData.bestVersusTrophies}
         versusBattleWins={playerData.versusBattleWins}
       />
-      <UnitCard troops={playerData.troops} />
+      <UnitCard troops={troopsData.home} category="home" />
+      <UnitCard troops={playerData.heroes} category="heroes" />
+      <UnitCard troops={troopsData.pets} category="home" />
+      <UnitCard troops={troopsData.siegeMachines} category="home" />
+      <UnitCard troops={troopsData.builderBase} category="builderBase" />
     </section>
   );
 }
