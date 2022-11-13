@@ -19,7 +19,10 @@ const locationsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (response.reason !== undefined) {
       res.status(404).json({ status: 404, message: "찾을 수 없습니다." });
     } else {
-      res.status(200).json({ status: 200, result: response });
+      const filteredItems = response.items.filter((item) => item.isCountry);
+      const result = { items: filteredItems, paging: response.paging };
+
+      res.status(200).json({ status: 200, result });
     }
   } catch (e) {
     res.status(500).json({ status: 500, message: "문제가 발생했습니다." });

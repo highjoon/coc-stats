@@ -1,18 +1,18 @@
-import { NextApiResponse, NextApiRequest } from "next/dist/shared/lib/utils";
 import { API_BASE_URL, API_WEB_TOKEN } from "constants/http";
-import { APIPlayerVersusRankingList } from "types/api";
-import APIRequest from "utils/api";
+import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
+import { APIClanVersusRankingList } from "types/api";
 import { IRankingsResult } from "types/rankings";
+import APIRequest from "utils/api";
 
-const playerVersusRankingsHandler = async (
+const clanVersusRankingsHandler = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ) => {
   const { locationId } = req.query;
 
   try {
-    const response = await APIRequest<APIPlayerVersusRankingList>(
-      `${API_BASE_URL}/locations/${String(locationId)}/rankings/players-versus`,
+    const response = await APIRequest<APIClanVersusRankingList>(
+      `${API_BASE_URL}/locations/${String(locationId)}/rankings/clans-versus`,
       {
         method: "GET",
         headers: {
@@ -28,9 +28,10 @@ const playerVersusRankingsHandler = async (
       return {
         tag: item.tag,
         name: item.name,
-        level: item.expLevel,
-        trophies: item.versusTrophies,
+        level: item.clanLevel,
+        trophies: item.clanVersusPoints,
         rank: item.rank,
+        imgUrl: item.badgeUrls.small,
       };
     });
 
@@ -44,4 +45,4 @@ const playerVersusRankingsHandler = async (
   }
 };
 
-export default playerVersusRankingsHandler;
+export default clanVersusRankingsHandler;

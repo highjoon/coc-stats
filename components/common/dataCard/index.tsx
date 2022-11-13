@@ -28,7 +28,7 @@ function DataCard({
         </span>
         <div className="flex items-center gap-4">
           <div className="relative w-16 h-16 md:w-11 md:h-11">
-            <Image src={imgUrl} layout="fill" />
+            {imgUrl && <Image src={imgUrl} layout="fill" />}
           </div>
           <div className="flex flex-col w-48 md:w-28">
             <span className="font-bold">{name}</span>

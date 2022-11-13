@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import RANKINGS_TYPE_LIST from "constants/rankings";
 import { APILocation } from "types/api";
-import { IRankingsType } from "types/rankings";
+import { ICategoryRankingsType, ICountryRankingsType } from "types/rankings";
 import { IRankingsProps } from "./types";
+import RankingsSelectBox from "./selectBox";
 
 function RankingsType({
   locationList,
   country,
   category,
-  openCountryList,
-  openCategoryList,
-  setOpenCountryList,
-  setOpenCategoryList,
   setCountry,
   setCategory,
 }: IRankingsProps) {
+  const [openCountryList, setOpenCountryList] = useState<boolean>(false);
+  const [openCategoryList, setOpenCategoryList] = useState<boolean>(false);
+
   const toggleCountryList = () => {
     setOpenCountryList((prev) => !prev);
   };
@@ -23,31 +23,26 @@ function RankingsType({
     setOpenCategoryList((prev) => !prev);
   };
 
-  const onClickCountry = (type: IRankingsType) => {
+  const onClickCountry = (type: ICountryRankingsType) => {
     setCountry({ name: type.name, code: type.code });
   };
 
-  const onClickCategory = (type: { name: string; code: string }) => {
+  const onClickCategory = (type: ICategoryRankingsType) => {
     setCategory({ name: type.name, code: type.code });
   };
 
   return (
-    <div className="flex items-center justify-between w-full gap-3 px-10 py-4 md:px-6">
-      <div
-        role="presentation"
-        className="relative w-full p-3 text-center text-white rounded-md cursor-pointer bg-layout"
-        onClick={toggleCountryList}
-      >
-        {country.name}
+    <div className="flex items-center justify-between w-full gap-3 px-10 py-4 md:px-6 md:flex-col">
+      <RankingsSelectBox toggleHandler={toggleCountryList} name={country.name}>
         {openCountryList && (
-          <div className="absolute left-0 z-10 w-full p-3 pb-0 overflow-scroll rounded-md h-80 bg-default top-14">
+          <div className="absolute left-0 z-10 w-full pb-0 overflow-scroll rounded-md h-60 bg-layout top-14">
             <ul>
               {locationList.items.map(
                 (location: APILocation) =>
                   location.name && (
                     <li
                       key={`${String(location.id)}`}
-                      className="p-3"
+                      className="py-2"
                       role="presentation"
                       onClick={() =>
                         onClickCountry({
@@ -63,15 +58,13 @@ function RankingsType({
             </ul>
           </div>
         )}
-      </div>
-      <div
-        role="presentation"
-        className="relative w-full p-3 text-center text-white rounded-md cursor-pointer bg-layout"
-        onClick={toggleCategoryList}
+      </RankingsSelectBox>
+      <RankingsSelectBox
+        toggleHandler={toggleCategoryList}
+        name={category.name}
       >
-        {category.name}
         {openCategoryList && (
-          <div className="absolute left-0 z-10 w-full p-3 pb-0 overflow-scroll rounded-md bg-layout top-14">
+          <div className="absolute left-0 z-10 w-full pb-0 rounded-md bg-layout top-14">
             <ul>
               {RANKINGS_TYPE_LIST.map((type) => (
                 <li
@@ -86,7 +79,7 @@ function RankingsType({
             </ul>
           </div>
         )}
-      </div>
+      </RankingsSelectBox>
     </div>
   );
 }

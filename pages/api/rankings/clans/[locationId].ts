@@ -12,7 +12,7 @@ const clansRankingHandler = async (
 
   try {
     const response = await APIRequest<APIClanRankingList>(
-      `${API_BASE_URL}/locations/${String(locationId)}/rankings/players`,
+      `${API_BASE_URL}/locations/${String(locationId)}/rankings/clans`,
       {
         method: "GET",
         headers: {

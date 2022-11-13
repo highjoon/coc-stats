@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
 import DataCard from "components/common/dataCard";
-import { APIClanMember } from "types/api";
 import { IClanMemberListProps } from "./types";
 
 function ClanMemberList({ memberList, members }: IClanMemberListProps) {
@@ -18,7 +17,7 @@ function ClanMemberList({ memberList, members }: IClanMemberListProps) {
         {members}
         <span>명</span>
       </div>
-      {memberList.map((member: APIClanMember) => (
+      {memberList.map((member) => (
         <DataCard
           key={member.tag}
           tag={member.tag}

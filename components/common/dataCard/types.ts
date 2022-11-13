@@ -1,7 +1,7 @@
 export interface IDataCardProps {
   tag: string;
   rank: number;
-  imgUrl: string;
+  imgUrl?: string;
   name: string;
   level: number;
   members?: number;

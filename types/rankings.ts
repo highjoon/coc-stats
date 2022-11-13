@@ -1,6 +1,11 @@
-export interface IRankingsType {
+export interface ICountryRankingsType {
   name: string;
   code: number;
+}
+
+export interface ICategoryRankingsType {
+  name: string;
+  code: string;
 }
 
 export interface IRankingsResult {

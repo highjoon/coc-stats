@@ -1,6 +1,6 @@
 import React from "react";
-import ClanInfoCard from "components/clan/clanInfoCard";
-import ClanMemberList from "components/clan/clanMemberList";
+import ClanInfoCard from "components/clan/infoCard";
+import ClanMemberList from "components/clan/memberList";
 import { APIClan } from "types/api";
 
 interface IClanSearchResultProps {

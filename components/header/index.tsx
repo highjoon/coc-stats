@@ -11,8 +11,7 @@ function Header() {
 
   const moveToRankings = () => {
     router.push({
-      pathname: "/rankings/32000216",
-      query: { type: "players" },
+      pathname: "/rankings/players/32000216",
     });
   };
 
