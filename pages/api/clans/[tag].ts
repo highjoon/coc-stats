@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
 import { API_BASE_URL, API_WEB_TOKEN } from "constants/http";
 import APIRequest from "utils/api";
-import { APIPlayer } from "types/api";
+import { APIClan } from "types/api";
 
-const playerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const clansHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const response = await APIRequest<APIPlayer>(
-      `${API_BASE_URL}/players/${encodeURIComponent(String(req.query.tag))}`,
+    const response = await APIRequest<APIClan>(
+      `${API_BASE_URL}/clans/${encodeURIComponent(String(req.query.tag))}`,
       {
         method: "GET",
         headers: {
@@ -15,7 +15,6 @@ const playerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         },
       },
     );
-
     if (response.reason !== undefined) {
       res.status(404).json({ status: 404, message: "찾을 수 없습니다." });
     } else {
@@ -26,4 +25,4 @@ const playerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default playerHandler;
+export default clansHandler;

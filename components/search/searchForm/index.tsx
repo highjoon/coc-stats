@@ -1,24 +1,24 @@
 import React, { FormEvent, useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/dist/client/router";
 import useInput from "hooks/useInput";
-import { ISearchFormProps } from "./types";
+import { IProps } from "./types";
 
-function SearchForm({ isPlayersActive, isClansActive }: ISearchFormProps) {
+function SearchForm({ isPlayersActive, isClansActive }: IProps) {
   const [newInput, onChangenewInput] = useInput<string>("");
   const [category, setCategory] = useState<string>("");
 
   const router = useRouter();
-
-  useEffect(() => {
-    setCategory(isPlayersActive ? "player" : "clan");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isClansActive, isPlayersActive]);
 
   const onSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (!newInput.length) return;
     router.push(`${category}/${encodeURIComponent(newInput)}`);
   };
+
+  useEffect(() => {
+    setCategory(isPlayersActive ? "players" : "clans");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isClansActive, isPlayersActive]);
 
   return (
     <form

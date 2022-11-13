@@ -1,4 +1,4 @@
-export interface IDataCardProps {
+export interface Iprops {
   tag: string;
   rank: number;
   imgUrl?: string;

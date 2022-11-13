@@ -1,13 +1,9 @@
 import React from "react";
-import ClanInfoCard from "components/clan/infoCard";
-import ClanMemberList from "components/clan/memberList";
-import { APIClan } from "types/api";
+import ClanInfoCard from "components/clans/infoCard";
+import ClanMemberList from "components/clans/memberList";
+import { IProps } from "./types";
 
-interface IClanSearchResultProps {
-  clanData: APIClan;
-}
-
-function ClanSearchResult({ clanData }: IClanSearchResultProps) {
+function ClanSearchResult({ clanData }: IProps) {
   return (
     <section className="flex flex-col items-center justify-center w-full max-w-5xl p-4 mt-5 space-y-4 overflow-scroll bg-default">
       <ClanInfoCard

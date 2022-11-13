@@ -1,22 +1,14 @@
 import React from "react";
 import { useRouter } from "next/dist/client/router";
 import DataCard from "components/common/dataCard";
-import { IRankingsResult } from "types/rankings";
+import { IProps } from "./types";
 
-interface IRankingsInfoCardProps {
-  rankingsData: IRankingsResult;
-}
-
-function RankingsInfoCard({ rankingsData }: IRankingsInfoCardProps) {
+function RankingsInfoCard({ rankingsData }: IProps) {
   const router = useRouter();
   const category = router.asPath.split("/")[2].split("-")[0];
 
-  const onClick = () => {
-    router.push(
-      `/${category === "clans" ? "clan" : "player"}/${encodeURIComponent(
-        rankingsData.tag,
-      )}`,
-    );
+  const moveToDetail = () => {
+    router.push(`/${category}/${encodeURIComponent(rankingsData.tag)}`);
   };
 
   return (
@@ -28,7 +20,7 @@ function RankingsInfoCard({ rankingsData }: IRankingsInfoCardProps) {
       imgUrl={rankingsData.imgUrl}
       points={rankingsData.trophies}
       level={rankingsData.level}
-      onClickHandler={onClick}
+      onClickHandler={moveToDetail}
     />
   );
 }

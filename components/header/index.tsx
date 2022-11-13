@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/dist/client/router";
 
 function Header() {
   const router = useRouter();

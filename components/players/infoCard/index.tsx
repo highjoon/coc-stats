@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/dist/client/router";
 import CLAN_ROLE from "constants/clans";
-import { IPlayerInfoCardProps } from "./types";
+import { IProps } from "./types";
 
 function PlayerInfoCard({
   title,
@@ -24,12 +24,12 @@ function PlayerInfoCard({
   versusTrophies,
   bestVersusTrophies,
   versusBattleWins,
-}: IPlayerInfoCardProps) {
+}: IProps) {
   const router = useRouter();
 
   const moveToClanDetail = () => {
     if (!tag || !clanRole) return;
-    router.push(`/clan/${encodeURIComponent(tag)}`);
+    router.push(`/clans/${encodeURIComponent(tag)}`);
   };
 
   return (

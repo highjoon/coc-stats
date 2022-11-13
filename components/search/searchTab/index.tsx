@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useCallback } from "react";
 import buttonStyle from "./styles";
-import { ISearchTabProps } from "./types";
+import { IProps } from "./types";
 
 function SearchTab({
   isPlayersActive,
   isClansActive,
-  toggleIsPlayersActive,
-  toggleIsClansActive,
-}: ISearchTabProps) {
+  setIsPlayersActive,
+  setIsClansActive,
+}: IProps) {
+  const toggleIsPlayersActive = useCallback(() => {
+    setIsPlayersActive(true);
+    setIsClansActive(false);
+  }, [setIsClansActive, setIsPlayersActive]);
+
+  const toggleIsClansActive = useCallback(() => {
+    setIsClansActive(true);
+    setIsPlayersActive(false);
+  }, [setIsClansActive, setIsPlayersActive]);
+
   return (
     <div className="w-full h-12 text-lg">
       <button

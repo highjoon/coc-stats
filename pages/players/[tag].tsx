@@ -1,10 +1,10 @@
 import React from "react";
-import { GetServerSideProps } from "next";
-import PlayerSearchResult from "components/search/searchResult/player";
+import { GetServerSideProps } from "next/types";
+import PlayerSearchResult from "components/search/searchResult/players";
 import SearchError from "components/search/searchError";
+import { API_CLIENT_URL } from "constants/http";
 import APIRequest from "utils/api";
 import { APIPlayer } from "types/api";
-import { API_CLIENT_URL } from "constants/http";
 
 interface IPlayerPageProps {
   playerData: APIPlayer;
@@ -29,7 +29,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       status: number;
       message?: string;
     }>(
-      `${String(API_CLIENT_URL)}/api/player/${encodeURIComponent(String(tag))}`,
+      `${String(API_CLIENT_URL)}/api/players/${encodeURIComponent(
+        String(tag),
+      )}`,
     );
 
     if (response.status > 200) {

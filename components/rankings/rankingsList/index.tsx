@@ -1,13 +1,8 @@
 import React from "react";
-import RankingsInfoCard from "components/rankings/rankingsInfoCard";
-import { IRankingsResult } from "types/rankings";
+import RankingsInfoCard from "components/rankings/infoCard";
+import { IProps } from "./types";
 
-interface IRankingsListProps {
-  countryName: string;
-  rankingsData?: Array<IRankingsResult>;
-}
-
-function RankingsList({ countryName, rankingsData }: IRankingsListProps) {
+function RankingsList({ countryName, rankingsData }: IProps) {
   if (!rankingsData) {
     return <div className="h-screen" />;
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps } from "next/types";
 import SearchError from "components/search/searchError";
 import RankingsView from "components/rankings/rankingsView";
 import { API_CLIENT_URL } from "constants/http";

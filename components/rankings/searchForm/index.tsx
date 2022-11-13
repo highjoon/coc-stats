@@ -1,15 +1,8 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/dist/client/router";
+import { IProps } from "./types";
 
-interface IRankingsSearchFormProps {
-  categoryCode: string;
-  countryCode: number;
-}
-
-function RankingsSearchForm({
-  categoryCode,
-  countryCode,
-}: IRankingsSearchFormProps) {
+function RankingsSearchForm({ categoryCode, countryCode }: IProps) {
   const router = useRouter();
 
   const onClickSearchRank = () => {

@@ -1,8 +1,8 @@
 import { API_BASE_URL, API_WEB_TOKEN } from "constants/http";
 import { NextApiResponse, NextApiRequest } from "next/dist/shared/lib/utils";
+import APIRequest from "utils/api";
 import { APIPlayerRankingList } from "types/api";
 import { IRankingsResult } from "types/rankings";
-import APIRequest from "utils/api";
 
 const playersRankingHandler = async (
   req: NextApiRequest,

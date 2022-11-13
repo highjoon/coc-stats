@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { IClanInfoCardProps } from "./types";
+import { IProps } from "./types";
 
 function ClanInfoCard({
   imgUrl,
@@ -19,7 +19,7 @@ function ClanInfoCard({
   warLosses,
   isWarLogPublic,
   warLeague,
-}: IClanInfoCardProps) {
+}: IProps) {
   return (
     <div className="flex flex-col items-center justify-center w-full gap-2 px-20 py-2 bg-white rounded-lg md:px-4">
       {imgUrl && (

@@ -1,6 +1,6 @@
 import { APIWarLeague } from "types/api";
 
-export interface IClanInfoCardProps {
+export interface IProps {
   imgUrl?: string;
   name?: string;
   tag?: string;

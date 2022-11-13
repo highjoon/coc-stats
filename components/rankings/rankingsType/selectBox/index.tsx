@@ -1,16 +1,7 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { IProps } from "./types";
 
-interface IRankingsSelectBox {
-  toggleHandler: () => void;
-  name: string;
-  children: ReactNode;
-}
-
-function RankingsSelectBox({
-  toggleHandler,
-  name,
-  children,
-}: IRankingsSelectBox) {
+function RankingsSelectBox({ toggleHandler, name, children }: IProps) {
   return (
     <div
       role="presentation"

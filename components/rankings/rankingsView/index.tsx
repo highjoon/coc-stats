@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/dist/client/router";
 import RankingsType from "components/rankings/rankingsType";
 import RankingsList from "components/rankings/rankingsList";
 import RankingsSearchForm from "components/rankings/searchForm";
 import { ICategoryRankingsType, ICountryRankingsType } from "types/rankings";
-import { IRankingsView } from "../rankingsType/types";
+import { IProps } from "./types";
 
 function RankingsView({
   locationList,
   rankingsData,
   locationName,
   rankingsTypeName,
-}: IRankingsView) {
+}: IProps) {
   const router = useRouter();
 
   const [initCountryCode, initCategoryCode] = [

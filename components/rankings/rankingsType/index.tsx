@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import RankingsSelectBox from "components/rankings/rankingsType/selectBox";
 import RANKINGS_TYPE_LIST from "constants/rankings";
 import { APILocation } from "types/api";
 import { ICategoryRankingsType, ICountryRankingsType } from "types/rankings";
-import { IRankingsProps } from "./types";
-import RankingsSelectBox from "./selectBox";
+import { IProps } from "./types";
 
 function RankingsType({
   locationList,
@@ -11,7 +11,7 @@ function RankingsType({
   category,
   setCountry,
   setCategory,
-}: IRankingsProps) {
+}: IProps) {
   const [openCountryList, setOpenCountryList] = useState<boolean>(false);
   const [openCategoryList, setOpenCategoryList] = useState<boolean>(false);
 

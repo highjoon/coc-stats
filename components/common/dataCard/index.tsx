@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import CLAN_ROLE from "constants/clans";
-import { IDataCardProps } from "./types";
+import { Iprops } from "./types";
 
 function DataCard({
   tag,
@@ -15,7 +15,7 @@ function DataCard({
   donationsReceived,
   role,
   onClickHandler,
-}: IDataCardProps) {
+}: Iprops) {
   return (
     <div
       role="presentation"

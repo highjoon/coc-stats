@@ -1,19 +1,9 @@
 import React from "react";
-import PlayerInfoCard from "components/playerInfoCard";
+import PlayerInfoCard from "components/players/infoCard";
 import UnitCard from "components/common/unitCard";
-import {
-  mockBuilderTroopsData,
-  mockPetsData,
-  mockSiegeUnitsData,
-  mockSuperUnitsData,
-} from "utils/mockData";
-import { APIPlayer } from "types/api";
+import { IProps } from "./types";
 
-interface IPlayerSearchResultProps {
-  playerData: APIPlayer;
-}
-
-function PlayerSearchResult({ playerData }: IPlayerSearchResultProps) {
+function PlayerSearchResult({ playerData }: IProps) {
   return (
     <section className="flex flex-col items-center justify-center w-full max-w-5xl p-4 mt-5 space-y-4 overflow-scroll bg-default">
       <PlayerInfoCard
@@ -47,10 +37,6 @@ function PlayerSearchResult({ playerData }: IPlayerSearchResultProps) {
         versusBattleWins={playerData.versusBattleWins}
       />
       <UnitCard troops={playerData.troops} />
-      <UnitCard troops={mockSuperUnitsData} />
-      <UnitCard troops={mockSiegeUnitsData} />
-      <UnitCard troops={mockPetsData} />
-      <UnitCard troops={mockBuilderTroopsData} />
     </section>
   );
 }

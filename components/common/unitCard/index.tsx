@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { IUnitCardProps } from "./types";
+import { IProps } from "./types";
 
-function UnitCard({ troops }: IUnitCardProps) {
+function UnitCard({ troops }: IProps) {
   return (
     <div className="grid w-full grid-cols-8 gap-5 p-2 bg-white rounded-lg place-items-center md:gap-1 md:grid-cols-4 sm:grid-cols-3">
       {troops.map((troop) => (

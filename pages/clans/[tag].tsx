@@ -1,10 +1,10 @@
 import React from "react";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps } from "next/types";
 import SearchError from "components/search/searchError";
-import ClanSearchResult from "components/search/searchResult/clan";
+import ClanSearchResult from "components/search/searchResult/clans";
+import { API_CLIENT_URL } from "constants/http";
 import APIRequest from "utils/api";
 import { APIClan } from "types/api";
-import { API_CLIENT_URL } from "constants/http";
 
 interface IClanPageProps {
   clanData: APIClan;
@@ -29,7 +29,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       result: APIClan;
       status: number;
       message?: string;
-    }>(`${String(API_CLIENT_URL)}/api/clan/${encodeURIComponent(String(tag))}`);
+    }>(
+      `${String(API_CLIENT_URL)}/api/clans/${encodeURIComponent(String(tag))}`,
+    );
 
     if (response.status > 200) {
       return {

@@ -1,13 +1,13 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/dist/client/router";
 import DataCard from "components/common/dataCard";
-import { IClanMemberListProps } from "./types";
+import { IProps } from "./types";
 
-function ClanMemberList({ memberList, members }: IClanMemberListProps) {
+function ClanMemberList({ memberList, members }: IProps) {
   const router = useRouter();
 
   const moveToPlayerDetail = (tag: string) => {
-    router.push({ pathname: `/player/${encodeURIComponent(tag)}` });
+    router.push({ pathname: `/players/${encodeURIComponent(tag)}` });
   };
 
   return (

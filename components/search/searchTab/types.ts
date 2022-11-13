@@ -1,8 +1,8 @@
-import { MouseEventHandler } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-export interface ISearchTabProps {
+export interface IProps {
   isPlayersActive: boolean;
   isClansActive: boolean;
-  toggleIsPlayersActive: MouseEventHandler<HTMLButtonElement>;
-  toggleIsClansActive: MouseEventHandler<HTMLButtonElement>;
+  setIsPlayersActive: Dispatch<SetStateAction<boolean>>;
+  setIsClansActive: Dispatch<SetStateAction<boolean>>;
 }
