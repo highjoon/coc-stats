@@ -10,6 +10,7 @@
 - components
 - constants
 - hooks
+- libs
 - utils
 - styles
 - types

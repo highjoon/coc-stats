@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import SearchForm from "../searchForm";
-import SearchTab from "../searchTab";
+import SearchForm from "components/search/searchForm";
+import SearchTab from "components/search/searchTab";
 
 function SearchBox() {
   const [isPlayersActive, setIsPlayersActive] = useState<boolean>(true);
   const [isClansActive, setIsClansActive] = useState<boolean>(false);
 
   return (
-    <div className="w-full max-w-2xl m-auto my-0 border-2 rounded-md shadow-2xl border-default">
+    <div className="w-full max-w-2xl m-auto my-0 shadow-2xl md:max-w-sm">
       <SearchTab
         isPlayersActive={isPlayersActive}
         isClansActive={isClansActive}

@@ -8,6 +8,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "api-assets.clashofclans.com",
       },
+      {
+        protocol: "https",
+        hostname: "icons8.com",
+      },
     ],
   },
 };

@@ -1,54 +1,28 @@
 import React from "react";
 import { GetServerSideProps } from "next/types";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import PlayerSearchResult from "components/search/searchResult/players";
-import SearchError from "components/search/searchError";
-import { API_CLIENT_URL } from "constants/http";
-import APIRequest from "utils/api";
-import { APIPlayer } from "types/api";
-import { ITroopsResponse } from "types/troops";
+import QUERY_KEYS from "constants/queryKeys";
+import { getPlayerInfo } from "hooks/useGetPlayerInfo";
 
-interface IPlayerPageProps {
-  playerData: APIPlayer;
-  troopsData: ITroopsResponse;
-  message?: string;
-}
-
-function PlayerPage({ playerData, troopsData, message }: IPlayerPageProps) {
-  if (message !== undefined) {
-    return <SearchError message={message} />;
-  }
-
-  return <PlayerSearchResult playerData={playerData} troopsData={troopsData} />;
+function PlayerPage() {
+  return <PlayerSearchResult />;
 }
 
 export default PlayerPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tag } = context.query;
+  const queryClient = new QueryClient();
 
   try {
-    const response = await APIRequest<{
-      result: APIPlayer;
-      troops: ITroopsResponse;
-      status: number;
-      message?: string;
-    }>(
-      `${String(API_CLIENT_URL)}/api/players/${encodeURIComponent(
-        String(tag),
-      )}`,
+    await queryClient.prefetchQuery([QUERY_KEYS.players, tag], () =>
+      getPlayerInfo(String(tag)),
     );
 
-    if (response.status > 200) {
-      return {
-        props: {
-          message: response.message,
-        },
-      };
-    }
     return {
       props: {
-        playerData: response.result,
-        troopsData: response.troops,
+        dehydratedState: dehydrate(queryClient),
       },
     };
   } catch (e) {
