@@ -36,11 +36,25 @@ function PlayerSearchResult({ playerData, troopsData }: IProps) {
         bestVersusTrophies={playerData.bestVersusTrophies}
         versusBattleWins={playerData.versusBattleWins}
       />
-      <UnitCard troops={troopsData.home} category="home" />
-      <UnitCard troops={playerData.heroes} category="heroes" />
-      <UnitCard troops={troopsData.pets} category="home" />
-      <UnitCard troops={troopsData.siegeMachines} category="home" />
-      <UnitCard troops={troopsData.builderBase} category="builderBase" />
+      <UnitCard troops={playerData.heroes} category="heroes" title="영웅" />
+      <UnitCard troops={troopsData.home} category="home" title="마을회관" />
+      <UnitCard
+        troops={troopsData.superTroops}
+        category="home"
+        title="슈퍼유닛"
+      />
+      <UnitCard troops={troopsData.pets} category="home" title="펫" />
+      <UnitCard
+        troops={troopsData.siegeMachines}
+        category="home"
+        title="시즈머신"
+      />
+      <UnitCard spells={playerData.spells} category="home" title="마법" />
+      <UnitCard
+        troops={troopsData.builderBase}
+        category="builderBase"
+        title="장인기지"
+      />
     </section>
   );
 }

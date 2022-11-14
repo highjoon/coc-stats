@@ -1,12 +1,8 @@
-export interface IUnit {
-  name: string;
-  level: number;
-  maxLevel: number;
-  village: string;
-  superTroopIsActive?: boolean;
-}
+import { APIPlayerItem } from "types/api";
 
 export interface IProps {
-  troops: Array<IUnit>;
+  troops?: Array<APIPlayerItem>;
   category: string;
+  title: string;
+  spells?: Array<APIPlayerItem>;
 }
