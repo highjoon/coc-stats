@@ -1,3 +1,9 @@
+export interface APIResponse<T> {
+  result: T;
+  status: number;
+  message: string;
+}
+
 export interface APIPaging {
   cursors?: APICursors;
 }
@@ -357,8 +363,6 @@ export interface APIVerifyToken {
 
 /** /locations */
 export interface APILocationList {
-  reason?: string;
-  message?: string;
   items: APILocation[];
   paging: APIPaging;
 }

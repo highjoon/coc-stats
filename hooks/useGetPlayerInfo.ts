@@ -3,28 +3,27 @@ import { AxiosError } from "axios";
 import { API_CLIENT_URL } from "constants/http";
 import QUERY_KEYS from "constants/queryKeys";
 import axiosInstance from "lib/axios";
-import { APIPlayer } from "types/api";
+import { APIPlayer, APIResponse } from "types/api";
 import { ITroopsResponse } from "types/troops";
 
-export interface IGetPlayerInfo {
-  result: APIPlayer;
+interface APIPlayerResponse extends APIResponse<APIPlayer> {
   troops: ITroopsResponse;
-  status: number;
-  message: string;
 }
 
 interface IParams {
   tag: string;
   options?: UseQueryOptions<
-    IGetPlayerInfo,
+    APIPlayerResponse,
     AxiosError<{ status: number; message: string }>,
-    IGetPlayerInfo,
+    APIPlayerResponse,
     string[]
   >;
 }
 
-export const getPlayerInfo = async (tag: string): Promise<IGetPlayerInfo> => {
-  const response = await axiosInstance.get<IGetPlayerInfo>(
+export const getPlayerInfo = async (
+  tag: string,
+): Promise<APIPlayerResponse> => {
+  const response = await axiosInstance.get<APIPlayerResponse>(
     `${String(API_CLIENT_URL)}/api/players/${encodeURIComponent(String(tag))}`,
   );
 
