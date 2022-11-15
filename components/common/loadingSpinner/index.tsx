@@ -9,7 +9,7 @@ function LoadingSpinner() {
           <div className="relative w-12 h-12">
             <Image
               src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif"
-              alt=""
+              alt="loading-spinner"
               layout="fill"
             />
           </div>

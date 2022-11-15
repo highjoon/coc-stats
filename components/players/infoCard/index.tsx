@@ -72,7 +72,12 @@ function PlayerInfoCard({
               key={label.id}
               className="flex items-center gap-2 px-2 text-white rounded-md bg-header"
             >
-              <Image src={label.iconUrls.small} width={30} height={30} />
+              <Image
+                src={label.iconUrls.small}
+                width={30}
+                height={30}
+                alt="label"
+              />
               <span>{label.name}</span>
             </div>
           ))}

@@ -17,6 +17,10 @@ function PlayerPage() {
     <>
       <Head>
         <title>Clash of Clans Stats - Player</title>
+        <meta
+          name="description"
+          content="Clash of Clans Stats - 플레이어 정보"
+        />
       </Head>
       <Suspense fallback={<LoadingSpinner />}>
         <DynamicPlayerSearchResult />

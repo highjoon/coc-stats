@@ -23,18 +23,15 @@ function Header() {
         height={40}
         style={{ cursor: "pointer" }}
         onClick={moveToHome}
+        alt="header-logo"
       />
-      <nav>
-        <ul>
-          <li
-            role="presentation"
-            className="text-2xl font-semibold text-white cursor-pointer md:text-xl"
-            onClick={moveToRankings}
-          >
-            랭킹
-          </li>
-        </ul>
-      </nav>
+      <div
+        role="presentation"
+        className="text-2xl font-semibold text-white cursor-pointer md:text-xl"
+        onClick={moveToRankings}
+      >
+        랭킹
+      </div>
     </header>
   );
 }

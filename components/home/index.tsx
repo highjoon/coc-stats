@@ -7,7 +7,7 @@ function HomeView() {
     <main className="flex flex-col items-center justify-center w-full gap-10 py-20 m-auto">
       <Image
         src="/assets/images/logo/titleLogo.webp"
-        alt="Title Logo"
+        alt="title-logo"
         width={700}
         height={300}
       />

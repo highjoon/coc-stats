@@ -29,6 +29,7 @@ function UnitCard({ troops, category, spells, title }: IProps) {
                   .join("")}.webp`}
                 layout="fill"
                 objectFit="cover"
+                alt="troop"
               />
               <div
                 className={`flex justify-center items-center absolute p-1 w-6 h-6 text-white ${
@@ -60,6 +61,7 @@ function UnitCard({ troops, category, spells, title }: IProps) {
                   .join("")}.webp`}
                 layout="fill"
                 objectFit="cover"
+                alt="spell"
               />
               <div
                 className={`absolute bottom-0 right-0 flex items-center justify-center w-6 h-6 p-1 text-white rounded-sm ${

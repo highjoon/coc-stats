@@ -18,6 +18,7 @@ function RankingsPage() {
     <>
       <Head>
         <title>Clash of Clans Stats - Rankings</title>
+        <meta name="description" content="Clash of Clans Stats - 랭킹" />
       </Head>
       <Suspense fallback={<LoadingSpinner />}>
         <DynamicRankingsView />
