@@ -9,7 +9,7 @@ function UnitCard({ troops, category, spells, title }: IProps) {
       <div className="py-2 text-xl font-bold text-center border-b-2 border-b-layout">
         {title}
       </div>
-      <div className="grid grid-cols-8 gap-5 py-2 place-items-center md:gap-1 md:grid-cols-4 sm:grid-cols-3">
+      <div className="grid grid-cols-8 gap-5 py-2 place-items-center md:gap-1 md:grid-cols-5 sm:grid-cols-4">
         {troops &&
           troops.map((troop) => (
             <div
@@ -20,7 +20,7 @@ function UnitCard({ troops, category, spells, title }: IProps) {
                   : troop.level === troop.maxLevel
                   ? "border-yellow-500"
                   : "border-slate-400"
-              }`}
+              } md:w-12 md:h-12`}
             >
               <Image
                 src={`/assets/images/troops/${category}/${troop.name
@@ -51,7 +51,7 @@ function UnitCard({ troops, category, spells, title }: IProps) {
                 spell.level === spell.maxLevel
                   ? "border-yellow-500"
                   : "border-slate-500"
-              }`}
+              } md:w-12 md:h-12`}
             >
               <Image
                 src={`/assets/images/spells/${spell.name

@@ -34,7 +34,7 @@ function PlayerInfoCard({
 
   return (
     <div className="flex flex-col items-center justify-center w-full gap-2 px-20 py-2 bg-white rounded-lg md:px-4">
-      {imgUrl ? (
+      {imgUrl && (
         <div className="relative flex rounded-md w-14 h-14">
           <Image
             src={imgUrl}
@@ -43,33 +43,29 @@ function PlayerInfoCard({
             alt="player-image"
           />
         </div>
-      ) : (
-        <></>
       )}
       <div className="flex flex-col items-center justify-center">
         <div className="flex items-end gap-3">
           <span className="text-sm font-bold">LV. {level}</span>
-          <span className="text-3xl font-extrabold">{title}</span>
+          <span className="text-3xl font-extrabold md:text-lg">{title}</span>
         </div>
         <span
           onClick={moveToClanDetail}
           role="presentation"
-          className={`font-semibold ${
+          className={`font-semibold md:text-sm ${
             clanRole ? "hover:text-header cursor-pointer" : ""
           }`}
         >
           {tag}
         </span>
       </div>
-      {clanRole && warPreference ? (
+      {clanRole && warPreference && (
         <div className="flex flex-col items-center justify-center gap-2">
           <p>{CLAN_ROLE[clanRole]}</p>
           <p>클랜전 {warPreference === "in" ? "참여" : "미참여"}</p>
         </div>
-      ) : (
-        <></>
       )}
-      {labels ? (
+      {labels && (
         <div className="flex flex-col gap-2">
           {labels.map((label) => (
             <div
@@ -81,97 +77,73 @@ function PlayerInfoCard({
             </div>
           ))}
         </div>
-      ) : (
-        <></>
       )}
-      <div className="flex flex-col w-full gap-2">
-        {warStars ? (
+      <div className="flex flex-col w-full gap-2 md:text-sm">
+        {warStars && (
           <div className="flex justify-between w-full">
             <span>획득한 별</span>
             <span>{warStars}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {trophies ? (
+        {trophies && (
           <div className="flex justify-between w-full">
             <span>트로피</span>
             <span>{trophies}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {bestTrophies ? (
+        {bestTrophies && (
           <div className="flex justify-between w-full">
             <span>트로피 최고 기록</span>
             <span>{bestTrophies}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {attackWins ? (
+        {attackWins && (
           <div className="flex justify-between w-full">
             <span>공격 승리</span>
             <span>{attackWins}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {defenseWins ? (
+        {defenseWins && (
           <div className="flex justify-between w-full">
             <span>방어 승리</span>
             <span>{defenseWins}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {donations ? (
+        {donations && (
           <div className="flex justify-between w-full">
             <span>지원한 병력 수</span>
             <span>{donations}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {donationsReceived ? (
+        {donationsReceived && (
           <div className="flex justify-between w-full">
             <span>지원 받은 병력 수</span>
             <span>{donationsReceived}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {clanCapitalContributions ? (
+        {clanCapitalContributions && (
           <div className="flex justify-between w-full">
             <span>클랜 캐피탈 기여</span>
             <span>{clanCapitalContributions}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {versusTrophies ? (
+        {versusTrophies && (
           <div className="flex justify-between w-full">
             <span>장인 기지 트로피</span>
             <span>{versusTrophies}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {bestVersusTrophies ? (
+        {bestVersusTrophies && (
           <div className="flex justify-between w-full">
             <span>장인 기지 트로피 최고 기록</span>
             <span>{bestVersusTrophies}</span>
           </div>
-        ) : (
-          <></>
         )}
-        {versusBattleWins ? (
+        {versusBattleWins && (
           <div className="flex justify-between w-full">
             <span>장인 기지 공격 승리</span>
             <span>{versusBattleWins}</span>
           </div>
-        ) : (
-          <></>
         )}
       </div>
     </div>
