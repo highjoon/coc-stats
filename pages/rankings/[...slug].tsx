@@ -1,12 +1,17 @@
 import React, { Suspense } from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next/types";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import RankingsView from "components/rankings/rankingsView";
 import LoadingSpinner from "components/common/loadingSpinner";
 import QUERY_KEYS from "constants/queryKeys";
 import { getLocations } from "hooks/useGetLocations";
 import { getRankingsData } from "hooks/useGetRankings";
+
+const DynamicRankingsView = dynamic(
+  () => import("components/rankings/rankingsView"),
+  { suspense: true },
+);
 
 function RankingsPage() {
   return (
@@ -14,14 +19,8 @@ function RankingsPage() {
       <Head>
         <title>Clash of Clans Stats - Rankings</title>
       </Head>
-      <Suspense
-        fallback={
-          <section className="flex flex-col items-center justify-center w-full max-w-5xl p-4 mt-5 space-y-4 overflow-scroll bg-default">
-            <LoadingSpinner />
-          </section>
-        }
-      >
-        <RankingsView />
+      <Suspense fallback={<LoadingSpinner />}>
+        <DynamicRankingsView />
       </Suspense>
     </>
   );

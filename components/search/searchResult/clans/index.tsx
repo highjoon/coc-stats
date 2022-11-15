@@ -14,11 +14,7 @@ function ClanSearchResult() {
   const { data, isLoading, isError, error } = useGetClanInfo({ tag });
 
   if (isLoading) {
-    return (
-      <section className="flex flex-col items-center justify-center w-full max-w-5xl p-4 mt-5 space-y-4 bg-default">
-        <LoadingSpinner />
-      </section>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!data || isError) {

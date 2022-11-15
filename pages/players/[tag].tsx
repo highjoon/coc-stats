@@ -1,10 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next/types";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import PlayerSearchResult from "components/search/searchResult/players";
+import LoadingSpinner from "components/common/loadingSpinner";
 import QUERY_KEYS from "constants/queryKeys";
 import { getPlayerInfo } from "hooks/useGetPlayerInfo";
+
+const DynamicPlayerSearchResult = dynamic(
+  () => import("components/search/searchResult/players"),
+  { suspense: true },
+);
 
 function PlayerPage() {
   return (
@@ -12,7 +18,9 @@ function PlayerPage() {
       <Head>
         <title>Clash of Clans Stats - Player</title>
       </Head>
-      <PlayerSearchResult />
+      <Suspense fallback={<LoadingSpinner />}>
+        <DynamicPlayerSearchResult />
+      </Suspense>
     </>
   );
 }
