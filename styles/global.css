@@ -11,11 +11,6 @@ body {
   padding: 0;
 }
 
-#layout {
-  width: calc(100% + 1rem * 2);
-  margin: -1rem;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }

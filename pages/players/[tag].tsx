@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next/types";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import PlayerSearchResult from "components/search/searchResult/players";
 import QUERY_KEYS from "constants/queryKeys";
-import { getPlayerInfo } from "hooks/useGetPlayer";
+import { getPlayerInfo } from "hooks/useGetPlayerInfo";
 
 function PlayerPage() {
   return <PlayerSearchResult />;

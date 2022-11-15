@@ -3,9 +3,8 @@ import { useRouter } from "next/dist/client/router";
 import RankingsInfoCard from "components/rankings/infoCard";
 import SearchError from "components/search/searchError";
 import useGetRankings from "hooks/useGetRankings";
-import { IProps } from "./types";
 
-function RankingsList({ countryName }: IProps) {
+function RankingsList() {
   const router = useRouter();
 
   const [currentCountryCode, currentRankingsType] = [
@@ -33,10 +32,7 @@ function RankingsList({ countryName }: IProps) {
 
   return (
     <div className="flex flex-col justify-center w-full bg-white rounded-lg">
-      <div className="flex items-center justify-center w-full text-lg font-bold border-b-2 border-b-default">
-        {countryName}
-      </div>
-      {rankingsData?.result.items.map((data) => (
+      {rankingsData.result.items.map((data) => (
         <RankingsInfoCard key={data.tag} rankingsData={data} />
       ))}
     </div>

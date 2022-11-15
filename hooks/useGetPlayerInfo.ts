@@ -32,7 +32,6 @@ export const getPlayerInfo = async (
 
 const useGetPlayerInfo = ({ tag, options }: IParams) => {
   return useQuery([QUERY_KEYS.players, tag], () => getPlayerInfo(tag), {
-    retry: false,
     ...options,
   });
 };

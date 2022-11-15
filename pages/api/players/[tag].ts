@@ -38,7 +38,7 @@ const playersHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       status: 200,
       result: data,
       troops: troopsResponse,
-      message: "Sucess",
+      message: "Success",
     });
   } catch (e) {
     if (axios.isAxiosError(e)) {

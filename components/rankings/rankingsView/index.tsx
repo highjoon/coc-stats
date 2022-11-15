@@ -35,7 +35,7 @@ function RankingsView() {
           categoryCode={category.code}
           countryCode={country.code}
         />
-        <RankingsList countryName={country.name} />
+        <RankingsList />
       </div>
     </section>
   );

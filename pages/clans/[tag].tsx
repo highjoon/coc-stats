@@ -1,48 +1,28 @@
 import React from "react";
 import { GetServerSideProps } from "next/types";
-import SearchError from "components/search/searchError";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import ClanSearchResult from "components/search/searchResult/clans";
-import { API_CLIENT_URL } from "constants/http";
-import APIRequest from "utils/api";
-import { APIClan } from "types/api";
+import QUERY_KEYS from "constants/queryKeys";
+import { getClanInfo } from "hooks/useGetClanInfo";
 
-interface IClanPageProps {
-  clanData: APIClan;
-  message?: string;
-}
-
-function ClanPage({ clanData, message }: IClanPageProps) {
-  if (message !== undefined) {
-    return <SearchError message={message} />;
-  }
-
-  return <ClanSearchResult clanData={clanData} />;
+function ClanPage() {
+  return <ClanSearchResult />;
 }
 
 export default ClanPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tag } = context.query;
+  const queryClient = new QueryClient();
 
   try {
-    const response = await APIRequest<{
-      result: APIClan;
-      status: number;
-      message?: string;
-    }>(
-      `${String(API_CLIENT_URL)}/api/clans/${encodeURIComponent(String(tag))}`,
+    await queryClient.prefetchQuery([QUERY_KEYS.clans, tag], () =>
+      getClanInfo(String(tag)),
     );
 
-    if (response.status > 200) {
-      return {
-        props: {
-          message: response.message,
-        },
-      };
-    }
     return {
       props: {
-        clanData: response.result,
+        dehydratedState: dehydrate(queryClient),
       },
     };
   } catch (e) {

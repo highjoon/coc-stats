@@ -28,7 +28,7 @@ const locationsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(200).json({
       status: 200,
       result,
-      message: "Sucess",
+      message: "Success",
     });
   } catch (e) {
     if (axios.isAxiosError(e)) {
