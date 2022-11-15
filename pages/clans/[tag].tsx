@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { GetServerSideProps } from "next/types";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import ClanSearchResult from "components/search/searchResult/clans";
@@ -6,7 +7,14 @@ import QUERY_KEYS from "constants/queryKeys";
 import { getClanInfo } from "hooks/useGetClanInfo";
 
 function ClanPage() {
-  return <ClanSearchResult />;
+  return (
+    <>
+      <Head>
+        <title>Clash of Clans Stats - Clan</title>
+      </Head>
+      <ClanSearchResult />
+    </>
+  );
 }
 
 export default ClanPage;

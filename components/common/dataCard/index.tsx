@@ -26,7 +26,7 @@ function DataCard({
         <span className="absolute top-0 left-0 flex justify-center w-5 h-5 text-xs text-white bg-default">
           {rank}
         </span>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 md:gap-1">
           <div className="relative w-16 h-16 md:w-11 md:h-11">
             {imgUrl && <Image src={imgUrl} layout="fill" />}
           </div>

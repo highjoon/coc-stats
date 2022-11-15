@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { GetServerSideProps } from "next/types";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import PlayerSearchResult from "components/search/searchResult/players";
@@ -6,7 +7,14 @@ import QUERY_KEYS from "constants/queryKeys";
 import { getPlayerInfo } from "hooks/useGetPlayerInfo";
 
 function PlayerPage() {
-  return <PlayerSearchResult />;
+  return (
+    <>
+      <Head>
+        <title>Clash of Clans Stats - Player</title>
+      </Head>
+      <PlayerSearchResult />
+    </>
+  );
 }
 
 export default PlayerPage;
