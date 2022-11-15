@@ -1,35 +1,23 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { GetServerSideProps } from "next/types";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import SearchError from "components/search/searchError";
 import RankingsView from "components/rankings/rankingsView";
-import { API_CLIENT_URL } from "constants/http";
-import RANKINGS_TYPE_LIST from "constants/rankings";
+import LoadingSpinner from "components/common/loadingSpinner";
 import QUERY_KEYS from "constants/queryKeys";
 import { getLocations } from "hooks/useGetLocations";
-import APIRequest from "utils/api";
-import { IRankingsResult } from "types/rankings";
+import { getRankingsData } from "hooks/useGetRankings";
 
-interface IRankingsPage {
-  rankingsData: Array<IRankingsResult>;
-  message?: string;
-  rankingsTypeName: string;
-}
-
-function RankingsPage({
-  rankingsData,
-  message,
-  rankingsTypeName,
-}: IRankingsPage) {
-  if (message !== undefined) {
-    return <SearchError message={message} />;
-  }
-
+function RankingsPage() {
   return (
-    <RankingsView
-      rankingsData={rankingsData}
-      rankingsTypeName={rankingsTypeName}
-    />
+    <Suspense
+      fallback={
+        <section className="flex flex-col items-center justify-center w-full max-w-5xl p-4 mt-5 space-y-4 overflow-scroll bg-default">
+          <LoadingSpinner />
+        </section>
+      }
+    >
+      <RankingsView />
+    </Suspense>
   );
 }
 
@@ -38,32 +26,28 @@ export default RankingsPage;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { slug } = query;
-  const [rankingsType, locationId] = slug as string[];
+
+  const [rankingType, locationId] = slug as string[];
 
   const queryClient = new QueryClient();
 
   try {
-    await queryClient.prefetchQuery([QUERY_KEYS.locations], () =>
-      getLocations(locationId),
-    );
-
-    const response = await APIRequest<{
-      result: IRankingsResult;
-      status: number;
-      message?: string;
-    }>(
-      `${String(API_CLIENT_URL)}/api/rankings/${String(
-        rankingsType,
-      )}/${encodeURIComponent(locationId)}`,
-    );
-    const rankingsTypeName = RANKINGS_TYPE_LIST.find(
-      (item) => item.code === rankingsType,
-    )?.name;
+    await Promise.all([
+      queryClient.prefetchQuery([QUERY_KEYS.locations], () =>
+        getLocations(locationId),
+      ),
+      queryClient.prefetchQuery(
+        [QUERY_KEYS.rankings, QUERY_KEYS.players, locationId],
+        () =>
+          getRankingsData({
+            rankingType,
+            locationId,
+          }),
+      ),
+    ]);
 
     return {
       props: {
-        rankingsData: response.result,
-        rankingsTypeName,
         dehydratedState: dehydrate(queryClient),
       },
     };

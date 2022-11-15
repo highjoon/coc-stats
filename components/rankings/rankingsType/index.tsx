@@ -1,17 +1,27 @@
 import React, { useState } from "react";
+import { useRouter } from "next/dist/client/router";
 import RankingsSelectBox from "components/rankings/rankingsType/selectBox";
+import SearchError from "components/search/searchError";
 import RANKINGS_TYPE_LIST from "constants/rankings";
+import useGetLocations from "hooks/useGetLocations";
 import { APILocation } from "types/api";
 import { ICategoryRankingsType, ICountryRankingsType } from "types/rankings";
 import { IProps } from "./types";
 
-function RankingsType({
-  locationList,
-  country,
-  category,
-  setCountry,
-  setCategory,
-}: IProps) {
+function RankingsType({ country, category, setCountry, setCategory }: IProps) {
+  const router = useRouter();
+
+  const currentCountryCode = router.asPath.split("/")[3];
+
+  const {
+    data,
+    isError: isLocationsError,
+    error: locationsError,
+  } = useGetLocations({
+    locationId: currentCountryCode,
+    options: { suspense: true },
+  });
+
   const [openCountryList, setOpenCountryList] = useState<boolean>(false);
   const [openCategoryList, setOpenCategoryList] = useState<boolean>(false);
 
@@ -31,13 +41,21 @@ function RankingsType({
     setCategory({ name: type.name, code: type.code });
   };
 
+  if (!data || isLocationsError) {
+    const message = locationsError?.response?.data.message
+      ? locationsError?.response?.data.message
+      : "문제가 발생했습니다.";
+
+    return <SearchError message={message} />;
+  }
+
   return (
     <div className="flex items-center justify-between w-full gap-3 px-10 py-4 md:px-6 md:flex-col">
       <RankingsSelectBox toggleHandler={toggleCountryList} name={country.name}>
         {openCountryList && (
           <div className="absolute left-0 z-10 w-full pb-0 overflow-scroll rounded-md h-60 bg-layout top-14">
             <ul>
-              {locationList.items.map(
+              {data?.result.items.map(
                 (location: APILocation) =>
                   location.name && (
                     <li

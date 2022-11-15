@@ -398,8 +398,6 @@ export interface APIClanRanking {
 
 /** /locations/{locationId}/rankings/players */
 export interface APIPlayerRankingList {
-  reason?: string;
-  message?: string;
   items: APIPlayerRanking[];
   paging: APIPaging;
 }

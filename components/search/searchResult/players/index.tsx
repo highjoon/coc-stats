@@ -4,7 +4,7 @@ import PlayerInfoCard from "components/players/infoCard";
 import UnitCard from "components/common/unitCard";
 import SearchError from "components/search/searchError";
 import LoadingSpinner from "components/common/loadingSpinner";
-import useGetPlayerInfo from "hooks/useGetPlayerInfo";
+import useGetPlayerInfo from "hooks/useGetPlayer";
 
 function PlayerSearchResult() {
   const router = useRouter();

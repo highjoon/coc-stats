@@ -3,20 +3,20 @@ const RANKINGS_TYPE_LIST: Array<{
   code: string;
 }> = [
   {
-    name: "클랜",
-    code: "clans",
-  },
-  {
     name: "플레이어",
     code: "players",
   },
   {
-    name: "클랜 장인기지",
-    code: "clans-versus",
+    name: "클랜",
+    code: "clans",
   },
   {
     name: "장인기지",
     code: "players-versus",
+  },
+  {
+    name: "클랜 장인기지",
+    code: "clans-versus",
   },
 ];
 

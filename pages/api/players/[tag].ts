@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
 import axios, { AxiosError } from "axios";
 import { API_BASE_URL } from "constants/http";

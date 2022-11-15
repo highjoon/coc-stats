@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
 import { API_BASE_URL } from "constants/http";
 import axiosInstance from "lib/axios";
@@ -9,11 +8,13 @@ const locationsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { locationId } = req.query;
 
   try {
-    const response = await axiosInstance.get<APILocationList>(
+    const { data } = await axiosInstance.get<APILocationList>(
       `${API_BASE_URL}/locations/`,
     );
 
-    const filteredItems = response.data.items.filter((item) => item.isCountry);
+    const { items, paging } = data;
+
+    const filteredItems = items.filter((item) => item.isCountry);
     const locationName = filteredItems.find(
       (item) => item.id === Number(locationId),
     )?.name;
@@ -21,7 +22,7 @@ const locationsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     const result = {
       items: filteredItems,
       locationName,
-      paging: response.data.paging,
+      paging,
     };
 
     return res.status(200).json({

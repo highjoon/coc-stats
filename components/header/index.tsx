@@ -16,7 +16,7 @@ function Header() {
   };
 
   return (
-    <header className="fixed top-0 z-20 flex items-center justify-between w-full p-3 h-15 bg-header md:p-2">
+    <header className="fixed top-0 z-20 flex items-center justify-between w-full p-3 h-15 bg-header md:px-5">
       <Image
         src="/assets/images/logo/headerLogo.webp"
         width={130}
