@@ -1,7 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPWA = require("next-pwa")({
+  dest: "public",
+});
+
+module.exports = withPWA({
   reactStrictMode: true,
   swcMinify: true,
-};
-
-module.exports = nextConfig;
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api-assets.clashofclans.com",
+      },
+      {
+        protocol: "https",
+        hostname: "icons8.com",
+      },
+    ],
+  },
+});

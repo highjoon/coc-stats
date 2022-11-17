@@ -1,16 +1,10 @@
 import React from "react";
+import { IProps } from "./types";
 
-import Header from "components/header";
-
-interface ILayoutProp {
-  children: React.ReactNode;
-}
-
-function Layout({ children }: ILayoutProp) {
+function Layout({ children }: IProps) {
   return (
-    <div className="w-full h-screen p-0 m-0">
-      <Header />
-      {children}
+    <div className="w-full pb-10 mt-14">
+      <div className="flex items-center justify-center px-4">{children}</div>
     </div>
   );
 }

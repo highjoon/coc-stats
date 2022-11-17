@@ -1,3 +1,13 @@
+import HomeView from "components/home";
+import Head from "next/head";
+
 export default function Home() {
-  return <div className="p-2 text-3xl text-green-600">Hello!</div>;
+  return (
+    <>
+      <Head>
+        <title>Clash of Clans Stats</title>
+      </Head>
+      <HomeView />
+    </>
+  );
 }

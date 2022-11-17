@@ -1,7 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const px0_10 = { ...Array.from(Array(11)).map((_, i) => `${i}px`) };
-const px0_100 = { ...Array.from(Array(101)).map((_, i) => `${i}px`) };
-const px0_200 = { ...Array.from(Array(201)).map((_, i) => `${i}px`) };
 
 module.exports = {
   mode: "jit",
@@ -12,12 +9,20 @@ module.exports = {
   ],
   theme: {
     extend: {
-      borderWidth: px0_10,
-      fontSize: px0_100,
-      spacing: px0_200,
       colors: {
+        default: "#31313c",
         layout: "#171A21",
+        header: "#5383e8",
       },
+      backgroundImage: {
+        homeBackground: "url('/assets/images/background/homeBackground.webp')",
+      },
+    },
+    screens: {
+      xl: { max: "1200px" },
+      lg: { max: "1024px" },
+      md: { max: "640px" },
+      sm: { max: "375px" },
     },
   },
   plugins: [],
