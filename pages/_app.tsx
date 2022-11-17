@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import {
   DehydratedState,
   Hydrate,
@@ -23,6 +24,12 @@ export default function MyApp({
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <Header />
+        <Head>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+        </Head>
         <Layout>
           <Component {...pageProps} />
         </Layout>
