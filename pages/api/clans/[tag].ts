@@ -1,13 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
 import axios, { AxiosError } from "axios";
-import { API_BASE_URL } from "constants/http";
 import axiosInstance from "lib/axios";
 import { APIClan } from "types/api";
 
 const clansHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { data } = await axiosInstance.get<APIClan>(
-      `${API_BASE_URL}/clans/${encodeURIComponent(String(req.query.tag))}`,
+      `/clans/${encodeURIComponent(String(req.query.tag))}`,
     );
 
     return res.status(200).json({

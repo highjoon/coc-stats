@@ -1,8 +1,7 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { API_CLIENT_URL } from "constants/http";
 import QUERY_KEYS from "constants/queryKeys";
-import axiosInstance from "lib/axios";
 import { APIPlayer, APIResponse } from "types/api";
 import { ITroopsResponse } from "types/troops";
 
@@ -23,8 +22,8 @@ interface IParams {
 export const getPlayerInfo = async (
   tag: string,
 ): Promise<APIPlayerResponse> => {
-  const response = await axiosInstance.get<APIPlayerResponse>(
-    `${String(API_CLIENT_URL)}/api/players/${encodeURIComponent(String(tag))}`,
+  const response = await axios.get<APIPlayerResponse>(
+    `${API_CLIENT_URL}/api/players/${encodeURIComponent(String(tag))}`,
   );
 
   return response.data;
