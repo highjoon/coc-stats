@@ -1,8 +1,7 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { API_CLIENT_URL } from "constants/http";
 import QUERY_KEYS from "constants/queryKeys";
-import axiosInstance from "lib/axios";
 import { APIPaging, APIResponse } from "types/api";
 import { IRankingsResult } from "types/rankings";
 
@@ -30,8 +29,8 @@ export const getRankingsData = async ({
   rankingType: string;
   locationId: string;
 }): Promise<APIResponse<APIRankingsData>> => {
-  const response = await axiosInstance.get<APIResponse<APIRankingsData>>(
-    `${String(API_CLIENT_URL)}/api/rankings/${rankingType}/${encodeURIComponent(
+  const response = await axios.get<APIResponse<APIRankingsData>>(
+    `${API_CLIENT_URL}/api/rankings/${rankingType}/${encodeURIComponent(
       locationId,
     )}`,
   );

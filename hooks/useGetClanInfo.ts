@@ -1,8 +1,7 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { API_CLIENT_URL } from "constants/http";
 import QUERY_KEYS from "constants/queryKeys";
-import axiosInstance from "lib/axios";
 import { APIClan, APIResponse } from "types/api";
 
 interface IParams {
@@ -18,8 +17,8 @@ interface IParams {
 export const getClanInfo = async (
   tag: string,
 ): Promise<APIResponse<APIClan>> => {
-  const response = await axiosInstance.get<APIResponse<APIClan>>(
-    `${String(API_CLIENT_URL)}/api/clans/${encodeURIComponent(String(tag))}`,
+  const response = await axios.get<APIResponse<APIClan>>(
+    `${API_CLIENT_URL}/api/clans/${encodeURIComponent(String(tag))}`,
   );
 
   return response.data;
