@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
 import axios, { AxiosError } from "axios";
-import { API_BASE_URL } from "constants/http";
 import { PETS, SIEGE_MACHINES, SUPER_TROOPS } from "constants/troops";
 import axiosInstance from "lib/axios";
 import { APIPlayer } from "types/api";
@@ -9,7 +8,7 @@ import { ITroopsResponse } from "types/troops";
 const playersHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { data } = await axiosInstance.get<APIPlayer>(
-      `${API_BASE_URL}/players/${encodeURIComponent(String(req.query.tag))}`,
+      `/players/${encodeURIComponent(String(req.query.tag))}`,
     );
 
     const troopsResponse: ITroopsResponse = {

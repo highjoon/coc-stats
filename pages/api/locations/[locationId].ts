@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
-import { API_BASE_URL } from "constants/http";
 import axiosInstance from "lib/axios";
 import { APILocationList } from "types/api";
 import axios, { AxiosError } from "axios";
@@ -8,9 +7,7 @@ const locationsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { locationId } = req.query;
 
   try {
-    const { data } = await axiosInstance.get<APILocationList>(
-      `${API_BASE_URL}/locations/`,
-    );
+    const { data } = await axiosInstance.get<APILocationList>(`/locations`);
 
     const { items, paging } = data;
 

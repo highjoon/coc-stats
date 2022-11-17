@@ -1,6 +1,5 @@
 import { NextApiResponse, NextApiRequest } from "next/dist/shared/lib/utils";
 import axios, { AxiosError } from "axios";
-import { API_BASE_URL } from "constants/http";
 import axiosInstance from "lib/axios";
 import { APIPlayerRankingList } from "types/api";
 import { IRankingsResult } from "types/rankings";
@@ -13,7 +12,7 @@ const playersRankingHandler = async (
 
   try {
     const { data } = await axiosInstance.get<APIPlayerRankingList>(
-      `${API_BASE_URL}/locations/${String(locationId)}/rankings/players`,
+      `/locations/${String(locationId)}/rankings/players`,
     );
 
     const { items, paging } = data;

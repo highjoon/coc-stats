@@ -1,8 +1,7 @@
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { API_CLIENT_URL } from "constants/http";
 import QUERY_KEYS from "constants/queryKeys";
-import axiosInstance from "lib/axios";
+import { API_CLIENT_URL } from "constants/http";
 import { APILocationList, APIResponse } from "types/api";
 
 interface APILocationData extends APILocationList {
@@ -22,8 +21,8 @@ interface IParams {
 export const getLocations = async (
   locationId: string,
 ): Promise<APIResponse<APILocationData>> => {
-  const response = await axiosInstance.get<APIResponse<APILocationData>>(
-    `${String(API_CLIENT_URL)}/api/locations/${locationId}`,
+  const response = await axios.get<APIResponse<APILocationData>>(
+    `${API_CLIENT_URL}/api/locations/${locationId}`,
   );
 
   return response.data;
