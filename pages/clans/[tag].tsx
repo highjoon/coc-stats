@@ -44,5 +44,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   } catch (e) {
     return { notFound: true };
+  } finally {
+    queryClient.clear();
   }
 };
