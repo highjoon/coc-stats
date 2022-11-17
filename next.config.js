@@ -18,5 +18,5 @@ module.exports = withPWA({
       },
     ],
   },
-  exportTrailingSlash: true,
+  trailingSlash: true,
 });
