@@ -24,3 +24,5 @@
 - REFACTOR : 리팩토링
 - DOCS : README.md
 - DELETE : 파일 또는 폴더 삭제
+- FIX : 에러 수정
+- DEPLOYMENT : 배포 관련
