@@ -10,6 +10,10 @@ export default function MyDocument() {
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="msapplication-TileColor" content="#31313c" />
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
         <link sizes="57x57" href="/assets/icons/apple-touch-icon-57x57.png" />
         <link
           sizes="114x114"
