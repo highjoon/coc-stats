@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
-const withPWA = require("next-pwa")({
-  dest: "public",
-});
-
-module.exports = withPWA({
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -19,5 +15,4 @@ module.exports = withPWA({
     ],
   },
   trailingSlash: true,
-  webpack5: true,
-});
+};
