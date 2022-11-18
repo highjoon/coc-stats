@@ -23,7 +23,7 @@ export const getPlayerInfo = async (
   tag: string,
 ): Promise<APIPlayerResponse> => {
   const response = await axios.get<APIPlayerResponse>(
-    `${API_CLIENT_URL}/api/players/${encodeURIComponent(String(tag))}`,
+    `${String(API_CLIENT_URL)}/api/players/${encodeURIComponent(String(tag))}`,
   );
 
   return response.data;

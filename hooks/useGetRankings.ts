@@ -30,7 +30,7 @@ export const getRankingsData = async ({
   locationId: string;
 }): Promise<APIResponse<APIRankingsData>> => {
   const response = await axios.get<APIResponse<APIRankingsData>>(
-    `${API_CLIENT_URL}/api/rankings/${rankingType}/${encodeURIComponent(
+    `${String(API_CLIENT_URL)}/api/rankings/${rankingType}/${encodeURIComponent(
       locationId,
     )}`,
   );
