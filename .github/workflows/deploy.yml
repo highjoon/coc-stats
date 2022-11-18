@@ -5,11 +5,6 @@ on:
     branches:
       - master
 
-env:
-  S3_BUCKET_NAME: highjoon-coc
-  CODE_DEPLOY_APPLICATION_NAME: highjoon-coc-deployment
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: coc-deployment
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,7 +22,7 @@ jobs:
         run: yarn build
 
       - name: Make zip file
-        run: zip -qq -r ./$GITHUB_SHA.zip . -x "node_modules/*"
+        run: zip -qq -r ./${{ secrets.BUILD_DIRECTORY } . -x "node_modules/*"
         shell: bash
 
       - name: Configure AWS credentials
@@ -38,12 +33,12 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip
+        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./${{ secrets.BUILD_DIRECTORY } ${{ secrets.S3_BUCKET_NAME }}/${{ secrets.BUILD_DIRECTORY }
 
       - name: Code Deploy
         run: |
           aws deploy create-deployment \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
-          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
-          --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
-          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHA.zip
+          --application-name ${{ secrets.CODE_DEPLOY_APPLICATION_NAME }} \
+          --deployment-group-name ${{ secrets.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
+          --s3-location bucket=${{ secrets.AWS_S3_BUCKET_NAME }},bundleType=zip,key=${{ secrets.BUILD_DIRECTORY }
