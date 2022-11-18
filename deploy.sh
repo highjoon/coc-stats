@@ -1,3 +1,8 @@
- echo "> FE 배포"
- 
- sudo cp -rf /home/ubuntu/deploy-fe/dist/* /var/www/html
+#!/bin/bash
+REPOSITORY=/usr/share/nginx/html/coc-deploy
+
+cd $REPOSITORY
+
+sudo yarn
+
+sudo npx pm2 reload all

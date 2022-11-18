@@ -19,7 +19,7 @@ function SearchTab({
   }, [setIsClansActive, setIsPlayersActive]);
 
   return (
-    <div className="w-full h-12 text-lg md:h-11 md:text-md">
+    <div className="w-full h-12 text-lg md:h-11 md:text-sm">
       <button
         type="button"
         className={`${buttonStyle(isPlayersActive)}`}
