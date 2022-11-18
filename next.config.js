@@ -19,4 +19,5 @@ module.exports = withPWA({
     ],
   },
   trailingSlash: true,
+  webpack5: true,
 });
