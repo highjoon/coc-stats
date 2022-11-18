@@ -22,7 +22,7 @@ jobs:
         run: yarn build
 
       - name: Make zip file
-        run: zip -qq -r ./${{ secrets.BUILD_DIRECTORY } . -x "node_modules/*"
+        run: zip -qq -r ./${{ secrets.BUILD_DIRECTORY }} . -x "node_modules/*"
         shell: bash
 
       - name: Configure AWS credentials
