@@ -1,6 +1,5 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { API_CLIENT_URL } from "constants/http";
 import QUERY_KEYS from "constants/queryKeys";
 import { APIPlayer, APIResponse } from "types/api";
 import { ITroopsResponse } from "types/troops";
@@ -23,7 +22,7 @@ export const getPlayerInfo = async (
   tag: string,
 ): Promise<APIPlayerResponse> => {
   const response = await axios.get<APIPlayerResponse>(
-    `${String(API_CLIENT_URL)}/api/players/${encodeURIComponent(String(tag))}`,
+    `/api/players/${encodeURIComponent(String(tag))}`,
   );
 
   return response.data;

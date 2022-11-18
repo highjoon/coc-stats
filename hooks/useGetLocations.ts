@@ -1,7 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import QUERY_KEYS from "constants/queryKeys";
-import { API_CLIENT_URL } from "constants/http";
 import { APILocationList, APIResponse } from "types/api";
 
 interface APILocationData extends APILocationList {
@@ -22,7 +21,7 @@ export const getLocations = async (
   locationId: string,
 ): Promise<APIResponse<APILocationData>> => {
   const response = await axios.get<APIResponse<APILocationData>>(
-    `${String(API_CLIENT_URL)}/api/locations/${locationId}`,
+    `/api/locations/${locationId}`,
   );
 
   return response.data;

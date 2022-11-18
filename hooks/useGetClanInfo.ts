@@ -1,6 +1,5 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { API_CLIENT_URL } from "constants/http";
 import QUERY_KEYS from "constants/queryKeys";
 import { APIClan, APIResponse } from "types/api";
 
@@ -18,7 +17,7 @@ export const getClanInfo = async (
   tag: string,
 ): Promise<APIResponse<APIClan>> => {
   const response = await axios.get<APIResponse<APIClan>>(
-    `${String(API_CLIENT_URL)}/api/clans/${encodeURIComponent(String(tag))}`,
+    `/api/clans/${encodeURIComponent(String(tag))}`,
   );
 
   return response.data;
