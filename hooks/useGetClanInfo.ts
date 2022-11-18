@@ -18,7 +18,7 @@ export const getClanInfo = async (
   tag: string,
 ): Promise<APIResponse<APIClan>> => {
   const response = await axios.get<APIResponse<APIClan>>(
-    `${API_CLIENT_URL}/api/clans/${encodeURIComponent(String(tag))}`,
+    `${String(API_CLIENT_URL)}/api/clans/${encodeURIComponent(String(tag))}`,
   );
 
   return response.data;

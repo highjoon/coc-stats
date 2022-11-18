@@ -22,7 +22,7 @@ export const getLocations = async (
   locationId: string,
 ): Promise<APIResponse<APILocationData>> => {
   const response = await axios.get<APIResponse<APILocationData>>(
-    `${API_CLIENT_URL}/api/locations/${locationId}`,
+    `${String(API_CLIENT_URL)}/api/locations/${locationId}`,
   );
 
   return response.data;
