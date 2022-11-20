@@ -13,6 +13,18 @@ export default function MyDocument() {
           httpEquiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
+        <meta
+          name="description"
+          content="내 전적이 궁금해? COCStats에서 확인해봐!"
+        />
+        <meta property="og:title" content="COC 전적검색" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://cocstats.awslearner-highjoon.com/"
+        />
+        <meta property="og:image" content="/assets/icons/logo.webp" />
+        <meta property="og:article:author" content="COC 전적검색" />
       </Head>
       <body>
         <Main />
