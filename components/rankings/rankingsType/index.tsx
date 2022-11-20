@@ -46,7 +46,7 @@ function RankingsType({ country, category, setCountry, setCategory }: IProps) {
       ? locationsError?.response?.data.message
       : "문제가 발생했습니다.";
 
-    return <SearchError message={message} />;
+    return <SearchError background message={message} />;
   }
 
   return (

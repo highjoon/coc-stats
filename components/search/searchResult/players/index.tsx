@@ -14,7 +14,7 @@ function PlayerSearchResult() {
   const { data, isLoading, isError, error } = useGetPlayerInfo({ tag });
 
   if (isLoading) {
-    return <LoadingSpinner />;
+    return <LoadingSpinner background />;
   }
 
   if (!data || isError) {
@@ -22,7 +22,7 @@ function PlayerSearchResult() {
       ? error?.response?.data.message
       : "문제가 발생했습니다.";
 
-    return <SearchError message={message} />;
+    return <SearchError background message={message} />;
   }
 
   const { result, troops } = data;

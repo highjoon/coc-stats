@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-nested-ternary */
 import React from "react";
 import Image from "next/image";
@@ -10,7 +11,7 @@ function UnitCard({ troops, category, spells, title }: IProps) {
         {title}
       </div>
       <div className="grid grid-cols-8 gap-5 py-2 place-items-center md:gap-1 md:grid-cols-5 sm:grid-cols-4">
-        {troops &&
+        {troops ? (
           troops.map((troop) => (
             <div
               key={`${troop.name}-${troop.village}`}
@@ -43,8 +44,11 @@ function UnitCard({ troops, category, spells, title }: IProps) {
                 {troop.level}
               </div>
             </div>
-          ))}
-        {spells &&
+          ))
+        ) : (
+          <></>
+        )}
+        {spells ? (
           spells.map((spell) => (
             <div
               key={`${spell.name}-${spell.village}`}
@@ -73,7 +77,10 @@ function UnitCard({ troops, category, spells, title }: IProps) {
                 {spell.level}
               </div>
             </div>
-          ))}
+          ))
+        ) : (
+          <></>
+        )}
       </div>
     </section>
   );

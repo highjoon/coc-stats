@@ -14,5 +14,12 @@ module.exports = {
       },
     ],
   },
-  trailingSlash: true,
+  async rewrites() {
+    return [
+      {
+        source: "/coc/:path*",
+        destination: "https://api.clashofclans.com/v1/:path*",
+      },
+    ];
+  },
 };

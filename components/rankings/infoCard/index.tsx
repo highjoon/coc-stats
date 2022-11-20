@@ -13,7 +13,6 @@ function RankingsInfoCard({ rankingsData }: IProps) {
 
   return (
     <DataCard
-      key={rankingsData.tag}
       tag={rankingsData.tag}
       name={rankingsData.name}
       rank={rankingsData.rank}

@@ -22,7 +22,7 @@ function PlayerPage() {
           content="Clash of Clans Stats - 플레이어 정보"
         />
       </Head>
-      <Suspense fallback={<LoadingSpinner />}>
+      <Suspense fallback={<LoadingSpinner background />}>
         <DynamicPlayerSearchResult />
       </Suspense>
     </>

@@ -18,7 +18,6 @@ function SearchForm({ isPlayersActive, isClansActive }: IProps) {
 
   useEffect(() => {
     setCategory(isPlayersActive ? "players" : "clans");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isClansActive, isPlayersActive]);
 
   return (

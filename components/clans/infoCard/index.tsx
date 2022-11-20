@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from "react";
 import Image from "next/image";
 import { IProps } from "./types";
@@ -32,7 +33,7 @@ function ClanInfoCard({
           />
         </div>
       )}
-      {clanLevel && name && tag && countryName && (
+      {clanLevel && name && tag && countryName ? (
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-end gap-3">
             <span className="text-sm font-bold">LV. {clanLevel}</span>
@@ -42,14 +43,18 @@ function ClanInfoCard({
           {countryName && <p className="font-bold">{countryName}</p>}
           <p>{type === "open" ? "가입 가능" : "가입 불가능"}</p>
         </div>
+      ) : (
+        <></>
       )}
-      {description && (
+      {description ? (
         <div className="flex flex-col flex-wrap items-center justify-center w-full gap-2">
           <p className="text-xl font-bold">클랜 소개</p>
           <p>{description}</p>
         </div>
+      ) : (
+        <></>
       )}
-      {clanPoints && clanVersusPoints && (
+      {clanPoints && clanVersusPoints ? (
         <div className="flex flex-col justify-between w-full gap-2">
           <div className="flex justify-between">
             <p>클랜 포인트</p>
@@ -60,8 +65,10 @@ function ClanInfoCard({
             <p>{clanVersusPoints}</p>
           </div>
         </div>
+      ) : (
+        <></>
       )}
-      {isWarLogPublic === true && warLeague && (
+      {isWarLogPublic === true && warLeague ? (
         <div className="flex flex-col justify-between w-full gap-2">
           <div className="flex items-center justify-center text-lg font-bold">
             {warLeague?.name}
@@ -92,9 +99,13 @@ function ClanInfoCard({
             {warLosses}회
           </div>
         </div>
+      ) : (
+        <></>
       )}
-      {isWarLogPublic === false && (
+      {isWarLogPublic === false ? (
         <div className="flex items-center flex-center">전적 비공개</div>
+      ) : (
+        <></>
       )}
     </div>
   );

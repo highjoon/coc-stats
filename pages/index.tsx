@@ -1,5 +1,5 @@
-import HomeView from "components/home";
 import Head from "next/head";
+import HomeView from "components/home";
 
 export default function Home() {
   return (
