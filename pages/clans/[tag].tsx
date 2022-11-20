@@ -19,7 +19,7 @@ function ClanPage() {
         <title>Clash of Clans Stats - Clan</title>
         <meta name="description" content="Clash of Clans Stats - 클랜 정보" />
       </Head>
-      <Suspense fallback={<LoadingSpinner />}>
+      <Suspense fallback={<LoadingSpinner background />}>
         <DynamicClanSearchResult />
       </Suspense>
     </>

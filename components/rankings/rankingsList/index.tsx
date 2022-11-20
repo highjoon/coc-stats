@@ -1,40 +1,48 @@
 import React from "react";
 import { useRouter } from "next/dist/client/router";
+import InfiniteScroll from "react-infinite-scroller";
 import RankingsInfoCard from "components/rankings/infoCard";
-import SearchError from "components/search/searchError";
+import LoadingSpinner from "components/common/loadingSpinner";
+import SkeletonLoader from "components/rankings/skeletonLoader";
 import useGetRankings from "hooks/useGetRankings";
 
 function RankingsList() {
   const router = useRouter();
 
-  const [currentCountryCode, currentRankingsType] = [
+  const [locationId, rankingsType] = [
     router.asPath.split("/")[3],
     router.asPath.split("/")[2],
   ];
 
+  const rankingsUrl = `/coc/locations/${locationId}/rankings/${rankingsType}`;
+
   const {
-    data: rankingsData,
-    isError: isRankingsError,
-    error: rankingsError,
-  } = useGetRankings({
-    rankingType: currentRankingsType,
-    locationId: currentCountryCode,
-    options: { suspense: true },
-  });
+    data: responseData,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isFetching,
+  } = useGetRankings({ rankingsType, locationId, rankingsUrl });
 
-  if (!rankingsData || isRankingsError) {
-    const message = rankingsError?.response?.data.message
-      ? rankingsError?.response?.data.message
-      : "문제가 발생했습니다.";
-
-    return <SearchError message={message} />;
+  if (isLoading || !responseData) {
+    return <LoadingSpinner background={false} />;
   }
 
   return (
     <div className="flex flex-col justify-center w-full bg-white rounded-lg">
-      {rankingsData.result.items.map((data) => (
-        <RankingsInfoCard key={data.tag} rankingsData={data} />
-      ))}
+      <InfiniteScroll
+        loadMore={() => {
+          fetchNextPage();
+        }}
+        hasMore={hasNextPage}
+      >
+        {responseData.pages.map((data) => {
+          return data.map((item) => {
+            return <RankingsInfoCard key={item.tag} rankingsData={item} />;
+          });
+        })}
+        {isFetching && <SkeletonLoader />}
+      </InfiniteScroll>
     </div>
   );
 }

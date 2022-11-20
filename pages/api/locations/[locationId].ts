@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
+import axios, { AxiosError } from "axios";
 import axiosInstance from "lib/axios";
 import { APILocationList } from "types/api";
-import axios, { AxiosError } from "axios";
 
 const locationsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { locationId } = req.query;

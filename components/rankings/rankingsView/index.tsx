@@ -8,18 +8,18 @@ import { ICategoryRankingsType, ICountryRankingsType } from "types/rankings";
 function RankingsView() {
   const router = useRouter();
 
-  const [currentCountryCode, currentRankingsType] = [
+  const [locationId, rankingsType] = [
     router.asPath.split("/")[3],
     router.asPath.split("/")[2],
   ];
 
   const [country, setCountry] = useState<ICountryRankingsType>({
     name: "South Korea",
-    code: Number(currentCountryCode),
+    code: Number(locationId),
   });
   const [category, setCategory] = useState<ICategoryRankingsType>({
     name: "플레이어",
-    code: currentRankingsType,
+    code: rankingsType,
   });
 
   return (
