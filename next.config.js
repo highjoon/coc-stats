@@ -14,15 +14,28 @@ module.exports = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/coc/:path*",
+        headers: [
+          {
+            key: "Accept",
+            value: "application/json",
+          },
+          {
+            key: "Authorization",
+            value: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+          },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
         source: "/coc/:path*",
         destination: "https://api.clashofclans.com/v1/:path*",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-        },
       },
     ];
   },
