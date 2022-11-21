@@ -285,3 +285,8 @@ export interface APILabel {
   name: string;
   iconUrls: APIIcon;
 }
+
+export interface APIError {
+  status: number;
+  message: string;
+}

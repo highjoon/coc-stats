@@ -1,13 +1,13 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import QUERY_KEYS from "constants/queryKeys";
-import { APIClan, APIResponse } from "types/api";
+import { APIClan, APIError, APIResponse } from "types/api";
 
 interface IParams {
   tag: string;
   options?: UseQueryOptions<
     APIResponse<APIClan>,
-    AxiosError<{ status: number; message: string }>,
+    AxiosError<APIError>,
     APIResponse<APIClan>,
     string[]
   >;
