@@ -3,16 +3,21 @@ import axios, { AxiosError } from "axios";
 import axiosInstance from "lib/axios";
 import { APIPlayerVersusRankingList } from "types/api";
 import { IRankingsResult } from "types/rankings";
+import createRankingsUrl from "utils/createRankingsUrl";
 
 const playerVersusRankingsHandler = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ) => {
-  const { locationId } = req.query;
+  const { after, locationId } = req.query;
 
   try {
     const { data } = await axiosInstance.get<APIPlayerVersusRankingList>(
-      `/locations/${String(locationId)}/rankings/players-versus`,
+      createRankingsUrl({
+        after: String(after),
+        locationId: String(locationId),
+        rankingsType: "players-versus",
+      }),
     );
 
     const { items, paging } = data;
@@ -24,13 +29,12 @@ const playerVersusRankingsHandler = async (
         level: item.expLevel,
         trophies: item.versusTrophies,
         rank: item.rank,
-        imgUrl: item.clan?.badgeUrls.small,
+        imgUrl: "/assets/images/versusAxes.webp",
       };
     });
 
     const result = {
       items: filteredItems,
-      rankingsTypeName: "플레이어 장인기지",
       paging,
     };
 
