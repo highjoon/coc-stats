@@ -14,6 +14,23 @@ module.exports = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/coc/:path*",
+        headers: [
+          {
+            key: "Accept",
+            value: "application/json",
+          },
+          {
+            key: "Authorization",
+            value: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+          },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       {

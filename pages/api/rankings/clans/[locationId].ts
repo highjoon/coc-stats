@@ -1,6 +1,7 @@
 import { NextApiResponse, NextApiRequest } from "next/dist/shared/lib/utils";
 import axios, { AxiosError } from "axios";
 import axiosInstance from "lib/axios";
+import createRankingsUrl from "utils/createRankingsUrl";
 import { APIClanRankingList } from "types/api";
 import { IRankingsResult } from "types/rankings";
 
@@ -8,11 +9,15 @@ const clansRankingHandler = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ) => {
-  const { locationId } = req.query;
+  const { after, locationId } = req.query;
 
   try {
     const { data } = await axiosInstance.get<APIClanRankingList>(
-      `/locations/${String(locationId)}/rankings/clans`,
+      createRankingsUrl({
+        after: String(after),
+        locationId: String(locationId),
+        rankingsType: "clans",
+      }),
     );
 
     const { items, paging } = data;
@@ -30,7 +35,6 @@ const clansRankingHandler = async (
 
     const result = {
       items: filteredItems,
-      rankingsTypeName: "클랜",
       paging,
     };
 

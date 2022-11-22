@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import QUERY_KEYS from "constants/queryKeys";
-import { APIPlayer, APIResponse } from "types/api";
+import { APIError, APIPlayer, APIResponse } from "types/api";
 import { ITroopsResponse } from "types/troops";
 
 interface APIPlayerResponse extends APIResponse<APIPlayer> {
@@ -12,7 +12,7 @@ interface IParams {
   tag: string;
   options?: UseQueryOptions<
     APIPlayerResponse,
-    AxiosError<{ status: number; message: string }>,
+    AxiosError<APIError>,
     APIPlayerResponse,
     string[]
   >;

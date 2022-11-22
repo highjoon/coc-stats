@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import QUERY_KEYS from "constants/queryKeys";
-import { APILocationList, APIResponse } from "types/api";
+import { APIError, APILocationList, APIResponse } from "types/api";
 
 interface APILocationData extends APILocationList {
   locationName?: string;
@@ -11,7 +11,7 @@ interface IParams {
   locationId: string;
   options?: UseQueryOptions<
     APIResponse<APILocationData>,
-    AxiosError<{ status: number; message: string }>,
+    AxiosError<APIError>,
     APIResponse<APILocationData>,
     string[]
   >;

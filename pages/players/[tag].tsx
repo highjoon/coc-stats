@@ -7,12 +7,16 @@ import LoadingSpinner from "components/common/loadingSpinner";
 import QUERY_KEYS from "constants/queryKeys";
 import { getPlayerInfo } from "hooks/useGetPlayerInfo";
 
+interface IProps {
+  tag: string;
+}
+
 const DynamicPlayerSearchResult = dynamic(
   () => import("components/search/searchResult/players"),
   { suspense: true },
 );
 
-function PlayerPage() {
+function PlayerPage({ tag }: IProps) {
   return (
     <>
       <Head>
@@ -21,6 +25,7 @@ function PlayerPage() {
           name="description"
           content="Clash of Clans Stats - 플레이어 정보"
         />
+        <meta name="og:description" content={`플레이어 ${tag}의 정보`} />
       </Head>
       <Suspense fallback={<LoadingSpinner background />}>
         <DynamicPlayerSearchResult />
@@ -43,6 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         dehydratedState: dehydrate(queryClient),
+        tag,
       },
     };
   } catch (e) {

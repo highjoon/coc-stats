@@ -5,6 +5,7 @@ import RankingsInfoCard from "components/rankings/infoCard";
 import LoadingSpinner from "components/common/loadingSpinner";
 import SkeletonLoader from "components/rankings/skeletonLoader";
 import useGetRankings from "hooks/useGetRankings";
+import SearchError from "components/search/searchError";
 
 function RankingsList() {
   const router = useRouter();
@@ -14,7 +15,7 @@ function RankingsList() {
     router.asPath.split("/")[2],
   ];
 
-  const rankingsUrl = `/coc/locations/${locationId}/rankings/${rankingsType}`;
+  const rankingsUrl = `/api/rankings/${rankingsType}/${locationId}`;
 
   const {
     data: responseData,
@@ -22,10 +23,20 @@ function RankingsList() {
     hasNextPage,
     isLoading,
     isFetching,
+    isError,
+    error,
   } = useGetRankings({ rankingsType, locationId, rankingsUrl });
 
-  if (isLoading || !responseData) {
+  if (isLoading) {
     return <LoadingSpinner background={false} />;
+  }
+
+  if (isError || !responseData) {
+    const message = error?.response?.data.message
+      ? error?.response?.data.message
+      : "문제가 발생했습니다.";
+
+    return <SearchError background={false} message={message} />;
   }
 
   return (
@@ -36,8 +47,8 @@ function RankingsList() {
         }}
         hasMore={hasNextPage}
       >
-        {responseData.pages.map((data) => {
-          return data.map((item) => {
+        {responseData.pages.map((page) => {
+          return page.data.result.items.map((item) => {
             return <RankingsInfoCard key={item.tag} rankingsData={item} />;
           });
         })}
