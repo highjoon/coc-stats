@@ -5,7 +5,7 @@ interface IParams {
 }
 
 const createRankingsUrl = ({ after, locationId, rankingsType }: IParams) => {
-  return after
+  return after !== "undefined"
     ? `/locations/${locationId}/rankings/${rankingsType}?limit=15&after=${after}`
     : `/locations/${locationId}/rankings/${rankingsType}?limit=15`;
 };
