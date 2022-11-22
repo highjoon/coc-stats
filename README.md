@@ -55,20 +55,23 @@ Clash of Clans Stats에서는 태그를 통해 **플레이어**와 **클랜**의
 
 <p>
 
-<img width="33%" src="https://user-images.githubusercontent.com/63948484/203143848-5f094c01-9cc6-4d6b-be2b-77d9b05daf5c.png" /> <img width="33%" src="https://user-images.githubusercontent.com/63948484/203143761-825e9562-7a5d-45c9-ae85-c0f0bf7bf01a.png" /> <img width="33%" src="https://user-images.githubusercontent.com/63948484/203143363-e0e45136-e22a-450f-988d-856b891f6efc.png" />
+<img width="30%" src="https://user-images.githubusercontent.com/63948484/203143848-5f094c01-9cc6-4d6b-be2b-77d9b05daf5c.png" /> <img width="30%" src="https://user-images.githubusercontent.com/63948484/203143761-825e9562-7a5d-45c9-ae85-c0f0bf7bf01a.png" /> <img width="30%" src="https://user-images.githubusercontent.com/63948484/203143363-e0e45136-e22a-450f-988d-856b891f6efc.png" />
 
 </p>
 
 <p>
 
-<img width="33%" src="https://user-images.githubusercontent.com/63948484/203142192-b3c9c425-51af-48db-86ca-c4b05a7b61d2.png" /> <img width="33%" src="https://user-images.githubusercontent.com/63948484/203143086-811b5dee-787a-4806-9129-70525478f551.png" /> <img width="33%" src="https://user-images.githubusercontent.com/63948484/203144110-9399e78d-9023-421c-9cb6-e7d0afe13e8f.png" />
+<img width="30%" src="https://user-images.githubusercontent.com/63948484/203142192-b3c9c425-51af-48db-86ca-c4b05a7b61d2.png" /> <img width="30%" src="https://user-images.githubusercontent.com/63948484/203143086-811b5dee-787a-4806-9129-70525478f551.png" /> <img width="30%" src="https://user-images.githubusercontent.com/63948484/203144110-9399e78d-9023-421c-9cb6-e7d0afe13e8f.png" />
 
 </p>
 
 # 💻 스택
 
-| ![Nextjs](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) | ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white) | ![ReactQuery](https://img.shields.io/badge/ReactQuery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white) | ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) | ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| ![Nextjs](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) | ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white) | ![ReactQuery](https://img.shields.io/badge/ReactQuery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white) | 
+| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- 
+
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) | ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 
 | ![AmazonEc2](https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=AmazonEC2&logoColor=white) | ![AmazonS3](https://img.shields.io/badge/S3-FF9900?style=for-the-badge&logo=AmazonS3&logoColor=white) | ![AmazonCodeDeploy](https://img.shields.io/badge/CodeDeploy-FF9900?style=for-the-badge&logo=AmazonCodeDeploy&logoColor=white) | ![GithubActions](https://img.shields.io/badge/GithubActions-2088FF?style=for-the-badge&logo=GithubActions&logoColor=white) |
 | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
