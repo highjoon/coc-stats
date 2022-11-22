@@ -3,16 +3,21 @@ import axios, { AxiosError } from "axios";
 import axiosInstance from "lib/axios";
 import { APIPlayerRankingList } from "types/api";
 import { IRankingsResult } from "types/rankings";
+import createRankingsUrl from "utils/createRankingsUrl";
 
 const playersRankingHandler = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ) => {
-  const { locationId } = req.query;
+  const { after, locationId } = req.query;
 
   try {
     const { data } = await axiosInstance.get<APIPlayerRankingList>(
-      `/locations/${String(locationId)}/rankings/players`,
+      createRankingsUrl({
+        after: String(after),
+        locationId: String(locationId),
+        rankingsType: "players",
+      }),
     );
 
     const { items, paging } = data;
@@ -30,7 +35,6 @@ const playersRankingHandler = async (
 
     const result = {
       items: filteredItems,
-      rankingsTypeName: "플레이어",
       paging,
     };
 

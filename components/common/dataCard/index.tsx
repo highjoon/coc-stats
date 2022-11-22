@@ -20,7 +20,7 @@ function DataCard({
   return (
     <div
       role="presentation"
-      className="relative flex items-center justify-between w-full px-20 py-3 border-b-2 cursor-pointer md:p-2 border-b-default last:border-none"
+      className="relative flex items-center justify-between w-full px-20 py-3 border-b-2 cursor-pointer md:p-2 md:pr-6 border-b-default last:border-none"
       onClick={() => onClickHandler(tag)}
     >
       <div className="flex flex-col">

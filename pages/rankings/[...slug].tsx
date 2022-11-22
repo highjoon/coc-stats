@@ -5,8 +5,6 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { GetServerSideProps } from "next/types";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import { ErrorBoundary } from "react-error-boundary";
-import SearchError from "components/search/searchError";
 import QUERY_KEYS from "constants/queryKeys";
 import { getLocations } from "hooks/useGetLocations";
 
@@ -21,18 +19,12 @@ function RankingsPage() {
       <Head>
         <title>Clash of Clans Stats - Rankings</title>
         <meta name="description" content="Clash of Clans Stats - 랭킹" />
+        <meta
+          name="og:description"
+          content="전 세계의 랭킹이 궁금해? 여기서 확인해봐!"
+        />
       </Head>
-      <ErrorBoundary
-        fallback={
-          <SearchError
-            background
-            message={`문제가 발생했습니다.
-            국가 또는 분류를 다시 선택해주세요.`}
-          />
-        }
-      >
-        <DynamicRankingsView />
-      </ErrorBoundary>
+      <DynamicRankingsView />
     </>
   );
 }

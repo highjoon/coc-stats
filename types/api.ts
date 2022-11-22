@@ -1,24 +1,14 @@
-type APIRankings = Pick<
-  APIPlayerRanking &
-    APIClanRanking &
-    APIPlayerVersusRanking &
-    APIClanVersusRanking,
-  | "tag"
-  | "name"
-  | "clanLevel"
-  | "expLevel"
-  | "clanPoints"
-  | "rank"
-  | "trophies"
-  | "versusTrophies"
-  | "clanVersusPoints"
-  | "league"
-  | "badgeUrls"
-  | "clan"
->;
+import { IRankingsResult } from "./rankings";
 
-export interface APIRankingsResponse {
-  items: Array<APIRankings>;
+export interface APIAxiosHeader {
+  headers: {
+    Accept: string;
+    Authorization: string;
+  };
+}
+
+export interface APIRankingsData {
+  items: Array<IRankingsResult>;
   paging: APIPaging;
 }
 

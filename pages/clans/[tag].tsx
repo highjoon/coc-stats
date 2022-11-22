@@ -7,17 +7,22 @@ import LoadingSpinner from "components/common/loadingSpinner";
 import QUERY_KEYS from "constants/queryKeys";
 import { getClanInfo } from "hooks/useGetClanInfo";
 
+interface IProps {
+  tag: string;
+}
+
 const DynamicClanSearchResult = dynamic(
   () => import("components/search/searchResult/clans"),
   { suspense: true },
 );
 
-function ClanPage() {
+function ClanPage({ tag }: IProps) {
   return (
     <>
       <Head>
         <title>Clash of Clans Stats - Clan</title>
         <meta name="description" content="Clash of Clans Stats - 클랜 정보" />
+        <meta name="og:description" content={`클랜 ${tag}의 정보`} />
       </Head>
       <Suspense fallback={<LoadingSpinner background />}>
         <DynamicClanSearchResult />
@@ -40,6 +45,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         dehydratedState: dehydrate(queryClient),
+        tag,
       },
     };
   } catch (e) {
