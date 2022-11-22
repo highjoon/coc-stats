@@ -4,7 +4,7 @@ export default function MyDocument() {
   return (
     <Html lang="ko">
       <Head>
-        <link rel="icon" href="/assets/images/ogImage.webp" />
+        <link rel="icon" href="/assets/images/logo/logo.webp" />
         <meta name="theme-color" content="#ffffff" />
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
