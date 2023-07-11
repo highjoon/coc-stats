@@ -26,10 +26,10 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Upload to S3
         run: |
-          aws s3 cp --region ap-northeast-2 ./test-build.zip s3://test-s3-highjoon/test-build.zip
+          aws s3 cp --region ap-northeast-2 ./test-build.zip s3://coc-stats-bucket/test-build.zip
       - name: Deploy
         run: aws deploy create-deployment
-          --application-name test-codeDeploy
+          --application-name coc-stats-code-deploy
           --deployment-config-name CodeDeployDefault.AllAtOnce
-          --deployment-group-name test-deploy-group
-          --s3-location bucket=test-s3-highjoon,bundleType=zip
+          --deployment-group-name coc-stats-code-deploy-group
+          --s3-location bucket=coc-stats-bucket,bundleType=zip
