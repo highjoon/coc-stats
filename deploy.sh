@@ -1,5 +1,5 @@
 #!/bin/bash
-REPOSITORY=/usr/share/nginx/html/coc-deploy
+REPOSITORY=/home/ubuntu/deploy
 
 cd $REPOSITORY
 

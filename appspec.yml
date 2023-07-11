@@ -2,10 +2,10 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /usr/share/nginx/html/coc-deploy
+    destination: /home/ubuntu/deploy
     overwrite: yes
 permissions:
-  - object: /usr/share/nginx/html/coc-deploy
+  - object: /home/ubuntu/deploy
     owner: root
     group: root
     mode: 755
