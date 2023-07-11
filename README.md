@@ -6,7 +6,7 @@
 
 # 🔉 프로젝트 소개
 
-> Clash of Clans의 전적과 랭킹이 궁금하다면 이 곳 Clash of Clans Stats으로 오세요.
+> Clash of Clans의 전적과 랭킹이 궁금하다면 Clash of Clans Stats으로 오세요.
 
 Clash of Clans Stats에서는 태그를 통해 **플레이어**와 **클랜**의 정보를 확인할 수 있고, **전 세계의 랭킹 정보**를 확인할 수 있습니다.
 
@@ -67,10 +67,10 @@ Clash of Clans Stats에서는 태그를 통해 **플레이어**와 **클랜**의
 
 # 💻 스택
 
-| ![Nextjs](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) | ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white) | ![ReactQuery](https://img.shields.io/badge/ReactQuery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white) | 
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- 
+| ![Nextjs](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) | ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white) | ![ReactQuery](https://img.shields.io/badge/ReactQuery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white) |
+| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 
-![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) | ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) |
+| ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) | ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 
 | ![AmazonEc2](https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=AmazonEC2&logoColor=white) | ![AmazonS3](https://img.shields.io/badge/S3-FF9900?style=for-the-badge&logo=AmazonS3&logoColor=white) | ![AmazonCodeDeploy](https://img.shields.io/badge/CodeDeploy-FF9900?style=for-the-badge&logo=AmazonCodeDeploy&logoColor=white) | ![GithubActions](https://img.shields.io/badge/GithubActions-2088FF?style=for-the-badge&logo=GithubActions&logoColor=white) |
